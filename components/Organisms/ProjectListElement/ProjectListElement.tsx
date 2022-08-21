@@ -1,15 +1,12 @@
 import { Paper, Title, Text, MantineTheme, Badge, MantineColor } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
-import { badges as badgesLookup } from "../../../data/badges";
 import { Project } from "../../../data/projects";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
 
 export default function ProjectListElement({ title, badges, abstract, href }: Project) {
-	const badgeData = badges.map((b) => badgesLookup[b]);
-
 	return (
-		<Link href={href}>
+		<Link href={`projects/${href}`}>
 			<Paper
 				shadow="sm"
 				radius="md"
@@ -24,7 +21,7 @@ export default function ProjectListElement({ title, badges, abstract, href }: Pr
 				})}
 			>
 				<Title order={2}>{title}</Title>
-				<BadgeCollection badges={badgeData} />
+				<BadgeCollection badges={badges} />
 				<Text>{abstract}</Text>
 			</Paper>
 		</Link>

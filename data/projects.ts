@@ -1,32 +1,24 @@
-import { BadgeKeys } from "./badges";
+import { BadgeKeys, badges, Badge } from "./badges";
+import website from "./projects/Website";
+import commonSteamGames from "./projects/CommonSteamGames";
+import newtonRunner from "./projects/NewtonRunner";
+import experimentalHub from "./projects/ExperimentalHub";
+import p2PSecurityGossip from "./projects/P2PSecurityGossip";
+import miLightController from "./projects/MiLightController";
 
 export type Project = {
 	title: string;
-	badges: BadgeKeys[];
+	badges: Badge[];
 	href: string;
 	abstract: string;
+	description: () => JSX.Element;
 };
 
 export const projects: Project[] = [
-	{
-		title: "My Website",
-		badges: ["TypeScript", "React", "NextJs", "Mantine"],
-		href: "projects/website",
-		abstract:
-			"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum",
-	},
-	{
-		title: "Newton Runner",
-		badges: ["TypeScript", "React", "Bootstrap", "Phaser"],
-		href: "projects/newton-runner",
-		abstract:
-			"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum",
-	},
-	{
-		title: "Experimental Hub",
-		badges: ["Python", "TypeScript", "React"],
-		href: "projects/experimental-hub",
-		abstract:
-			"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum",
-	},
+	website,
+	commonSteamGames,
+	newtonRunner,
+	experimentalHub,
+	p2PSecurityGossip,
+	miLightController,
 ];

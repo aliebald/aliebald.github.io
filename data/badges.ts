@@ -15,7 +15,6 @@ const gradientDegree = 120;
 export const badges: Badges = {
 	TypeScript: {
 		title: "TypeScript",
-		// color: "blue",
 		gradient: { from: "indigo", to: "cyan", deg: gradientDegree },
 	},
 	React: {
@@ -32,7 +31,7 @@ export const badges: Badges = {
 	},
 	Bootstrap: {
 		title: "Bootstrap",
-		color: "#563d7c",
+		color: "grape",
 	},
 	Phaser: {
 		title: "Phaser",
@@ -40,10 +39,46 @@ export const badges: Badges = {
 	},
 	Python: {
 		title: "Python",
-		// color: "green",
 		gradient: { from: "teal", to: "lime", deg: gradientDegree },
+	},
+	WebRTC: {
+		title: "WebRTC",
+		gradient: { from: "orange", to: "pink", deg: gradientDegree },
+	},
+	SocketIO: {
+		title: "Socket.IO",
+		color: "dark",
+	},
+	Express: {
+		title: "Express",
+		gradient: { from: "#3C873A", to: "#68A063", deg: gradientDegree },
+	},
+	P2P: {
+		title: "P2P",
+		color: "green",
+	},
+	Java: {
+		title: "Java",
+		color: "orange",
+	},
+	MiLight: {
+		title: "MiLight",
 	},
 } as const;
 
 // TODO
 export type BadgeKeys = keyof typeof badges;
+
+export function mapBadges(keys: BadgeKeys[]): Readonly<Badge>[] {
+	const result = keys.map((key) => {
+		if (!(key in badges)) {
+			console.error("Invalid Badge Key:", key);
+			return {
+				title: "UNKNOWN",
+				color: "red",
+			};
+		}
+		return badges[key];
+	});
+	return result;
+}
