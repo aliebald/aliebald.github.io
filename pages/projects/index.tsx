@@ -1,11 +1,15 @@
 import { Container, Title, Text, Button } from "@mantine/core";
 import type { NextPage } from "next";
+import Head from "next/head";
 import ProjectListElement from "../../components/Organisms/ProjectListElement/ProjectListElement";
 import { projects } from "../../data/projects";
 
 const Projects: NextPage = () => {
 	return (
 		<Container>
+			<Head>
+				<title>Liebald | Projects</title>
+			</Head>
 			<Title align="center" pb="md">
 				Projects
 			</Title>

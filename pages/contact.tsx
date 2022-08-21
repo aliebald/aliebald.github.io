@@ -1,10 +1,14 @@
 import { Container, Text, Title } from "@mantine/core";
+import Head from "next/head";
 import React from "react";
 import styles from "../styles/Contact.module.css";
 
 export default function Contact() {
 	return (
 		<Container>
+			<Head>
+				<title>Liebald | Contact</title>
+			</Head>
 			<Title align="center" pb="md">
 				Contact
 			</Title>

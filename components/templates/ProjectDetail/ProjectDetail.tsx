@@ -13,6 +13,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 		<>
 			<Head>
 				<title>Liebald | {project.title}</title>
+				<meta name="description" content={project.abstract} />
 			</Head>
 			<Container>
 				<Title>{project.title}</Title>
