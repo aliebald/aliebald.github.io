@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMail, IconBrandLinkedin, IconBrandGithub } from "@tabler/icons";
 import { createStyles, Header, Group, ActionIcon, Container, Burger, Space, Tooltip } from "@mantine/core";
-import { ColorSchemeToggle } from "../ColorSchemeToggle/ColorSchemeToggle";
-import QuickIcon from "../QuickIcon/QuickIcon";
+import { ColorSchemeToggle } from "../../Molecules/ColorSchemeToggle/ColorSchemeToggle";
+import QuickIcon from "../../Molecules/QuickIcon/QuickIcon";
 import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({

@@ -1,7 +1,7 @@
 import { Container, Title, Text, Button, Group, Center, Grid, SimpleGrid, Box, MantineTheme } from "@mantine/core";
 import type { NextPage } from "next";
 import Link from "next/link";
-import ProjectsTeaser from "../components/ProjectsTeaser/ProjectsTeaser";
+import ProjectsTeaser from "../components/Organisms/ProjectsTeaser/ProjectsTeaser";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {

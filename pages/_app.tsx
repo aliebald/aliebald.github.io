@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import CustomHeader from "../components/Header/Header";
+import CustomHeader from "../components/Organisms/Header/Header";
 
 const links = [
 	{

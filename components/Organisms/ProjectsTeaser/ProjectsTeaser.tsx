@@ -1,4 +1,4 @@
-import styles from "../../styles/ProjectsTeaser.module.css";
+import styles from "./ProjectsTeaser.module.css";
 import React from "react";
 import { Container, Title, Box, SimpleGrid, MantineTheme } from "@mantine/core";
 
