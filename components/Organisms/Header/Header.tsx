@@ -81,7 +81,7 @@ export default function Header({ links }: { links: { label: string; href: string
 	const iconStroke = 1.5;
 
 	return (
-		<MantineHeader height={56} mb="md">
+		<MantineHeader height={56} pb="md">
 			<Container className={classes.inner}>
 				<Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
 				<Group className={classes.links} spacing={5}>

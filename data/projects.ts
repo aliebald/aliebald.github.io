@@ -6,11 +6,18 @@ import experimentalHub from "./projects/ExperimentalHub";
 import p2PSecurityGossip from "./projects/P2PSecurityGossip";
 import miLightController from "./projects/MiLightController";
 
+type Link = {
+	href: string;
+	type: "website" | "github" | "wiki";
+	label: string;
+};
+
 export type Project = {
 	title: string;
 	badges: Badge[];
 	href: string;
 	abstract: string;
+	links?: Link[];
 	description: () => JSX.Element;
 };
 

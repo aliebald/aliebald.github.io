@@ -9,6 +9,18 @@ const project: Project = {
 	abstract:
 		"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum",
 	description: ExperimentalHubProject,
+	links: [
+		{
+			href: "https://github.com/TUMFARSynchrony/experimental-hub",
+			type: "github",
+			label: "GitHub",
+		},
+		{
+			href: "https://github.com/TUMFARSynchrony/experimental-hub/wiki",
+			type: "wiki",
+			label: "Wiki",
+		},
+	],
 };
 
 export default project;

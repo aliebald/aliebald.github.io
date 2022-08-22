@@ -16,6 +16,18 @@ const project: Project = {
 	abstract:
 		"A web application that enables groups of users to discover common games regarding their steam accounts and vote on games to find common preferences.",
 	description: CommonSteamGamesProject,
+	links: [
+		{
+			href: "https://github.com/aliebald/common-steam-games",
+			type: "github",
+			label: "GitHub - Frontend",
+		},
+		{
+			href: "https://aliebald.github.io/common-steam-games",
+			type: "website",
+			label: "Website",
+		},
+	],
 };
 
 export default project;
@@ -51,18 +63,14 @@ function CommonSteamGamesProject(): JSX.Element {
 
 	return (
 		<Container>
-			<UnderConstruction />
-			<Title order={2} pt="md" pb="xs">
-				Discovering and Voting on Games
-			</Title>
+			{/* <UnderConstruction /> */}
+			<Title>Discovering and Voting on Games</Title>
 			<Text>
 				Common Steam Games is a web application that enables groups of users to discover common games regarding
 				their steam accounts and vote on games to find common preferences. Users can create sessions and invite
 				others to join their session.
 			</Text>
-			<Title order={2} pt="md" pb="xs">
-				Use Case
-			</Title>
+			<Title>Use Case</Title>
 			<Text>
 				Ever played with a group of friends and could not decide on what to play? Then Common Steam Games is for
 				you!
@@ -72,9 +80,7 @@ function CommonSteamGamesProject(): JSX.Element {
 				easy to use drag n drop and see the group preferences adopt. Find old classics or games you did not know
 				all of you had in common.
 			</Text>
-			<Title order={2} pt="md" pb="xs">
-				Development
-			</Title>
+			<Title>Development</Title>
 			<Text>
 				The frontend of Common Steam Games was build using TypeScript with React. To allow multiple users
 				joining a single session, a simple Express server with Socket.IO was set up. The server communicates
@@ -92,9 +98,7 @@ function CommonSteamGamesProject(): JSX.Element {
 				The styling was donne from scratch using plain css, without any kind of components or styling library.
 			</Text>
 
-			<Title order={2} pt="md" pb="xs">
-				Features
-			</Title>
+			<Title>Features</Title>
 			<List withPadding>
 				<List.Item>Live sessions with your peers</List.Item>
 				<List.Item>Preference matching</List.Item>
@@ -105,9 +109,7 @@ function CommonSteamGamesProject(): JSX.Element {
 					<em>...</em>
 				</List.Item>
 			</List>
-			<Title order={2} pt="md" pb="xs">
-				Gallery
-			</Title>
+			<Title>Gallery</Title>
 			<Gallery items={images} />
 			<Text size="xs" color="dimmed">
 				I am not associated with the steam accounts shown in the gallery. They were chosen randomly from
