@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 					</Text>
 					<Group position="center">
 						<Link href="/projects">
-							<Button size="lg">Past Projects</Button>
+							<Button size="lg">Discover Projects</Button>
 						</Link>
 						<Link href="/contact">
 							<Button size="lg" variant="outline">

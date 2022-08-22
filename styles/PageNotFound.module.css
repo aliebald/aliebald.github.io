@@ -2,9 +2,13 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	height: 100%
 }
 
-.description {
-	padding-top: .5rem;
-	padding-bottom: 1rem;
+.background {
+	position: absolute;
+	font-size: min(400px, 55vw);
+	z-index: -1;
+	opacity: .1
 }

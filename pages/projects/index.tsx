@@ -10,7 +10,7 @@ const Projects: NextPage = () => {
 			<Head>
 				<title>Liebald | Projects</title>
 			</Head>
-			<Title align="center" pb="md">
+			<Title align="center" pt="lg" pb="md">
 				Projects
 			</Title>
 			<Text color="dimmed" size="lg" align="center">

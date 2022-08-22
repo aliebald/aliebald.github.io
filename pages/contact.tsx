@@ -9,7 +9,7 @@ export default function Contact() {
 			<Head>
 				<title>Liebald | Contact</title>
 			</Head>
-			<Title align="center" pb="md">
+			<Title align="center" pt="lg" pb="md">
 				Contact
 			</Title>
 			<Text color="dimmed" size="lg" align="center">

@@ -8,12 +8,13 @@ import {
 	useMantineColorScheme,
 	MantineThemeOverride,
 	createStyles,
+	Tooltip,
 } from "@mantine/core";
 import React from "react";
 import { Project } from "../../../data/projects";
 import Head from "next/head";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
-import { IconBrandGithub, IconWorld, IconNotebook } from "@tabler/icons";
+import ProjectLinkBtn from "../../Molecules/ProjectLinkBtn/ProjectLinkBtn";
 interface ProjectDetailProps {
 	project: Project;
 }
@@ -59,19 +60,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 		},
 	};
 
-	const getIcon = (type: "website" | "github" | "wiki") => {
-		switch (type) {
-			case "github":
-				return <IconBrandGithub />;
-			case "website":
-				return <IconWorld />;
-			case "wiki":
-				return <IconNotebook />;
-		}
-	};
-
 	return (
-		<>
+		<div>
 			<Head>
 				<title>{`Liebald | ${project.title}`}</title>
 				<meta name="description" content={project.abstract} />
@@ -83,11 +73,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 					<Text align="center">{project.abstract}</Text>
 					<Group spacing="xs" position="center" py="md">
 						{project.links?.map((link, index) => (
-							<a href={link.href} key={index} target="_blank" rel="noopener noreferrer">
-								<Button radius="xl" variant="light" leftIcon={getIcon(link.type)}>
-									{link.label}
-								</Button>
-							</a>
+							<ProjectLinkBtn link={link} key={index} />
 						))}
 					</Group>
 				</Container>
@@ -95,6 +81,6 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 			<MantineProvider withGlobalStyles withNormalizeCSS theme={projectDetailTheme}>
 				<project.description />
 			</MantineProvider>
-		</>
+		</div>
 	);
 }

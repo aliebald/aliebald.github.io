@@ -63,7 +63,9 @@ function CommonSteamGamesProject(): JSX.Element {
 
 	return (
 		<Container>
-			{/* <UnderConstruction /> */}
+			<UnderConstruction />
+			<Title>Background</Title>
+			<Text>TODO</Text>
 			<Title>Discovering and Voting on Games</Title>
 			<Text>
 				Common Steam Games is a web application that enables groups of users to discover common games regarding

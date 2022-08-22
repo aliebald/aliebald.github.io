@@ -6,7 +6,7 @@ import experimentalHub from "./projects/ExperimentalHub";
 import p2PSecurityGossip from "./projects/P2PSecurityGossip";
 import miLightController from "./projects/MiLightController";
 
-type Link = {
+export type Link = {
 	href: string;
 	type: "website" | "github" | "wiki";
 	label: string;

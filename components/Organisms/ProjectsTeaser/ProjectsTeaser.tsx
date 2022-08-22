@@ -15,7 +15,7 @@ export default function ProjectsTeaser() {
 
 	return (
 		<Container className={styles.container} pb="md">
-			<Title order={1} align="center">
+			<Title order={1} align="center" pt="lg" pb="md">
 				Interesting Projects
 			</Title>
 			<SimpleGrid cols={2} spacing="md" py="md" breakpoints={[{ maxWidth: 700, cols: 1, spacing: "sm" }]}>
