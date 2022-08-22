@@ -1,16 +1,31 @@
-import { useRouter } from "next/router";
 import ProjectDetail from "../../components/templates/ProjectDetail/ProjectDetail";
-import { projects } from "../../data/projects";
+import { getProject, Project, projectPaths } from "../../data/projects";
 import PageNotFound from "../404";
 
-export default function ProjectDetailPage() {
-	const router = useRouter();
-	const { id } = router.query;
-	const project = projects.find((p) => p.href == id);
+interface ProjectDetailPageProps {
+	projectId?: string;
+}
 
+export default function ProjectDetailPage({ projectId }: ProjectDetailPageProps) {
+	if (!projectId) {
+		return <PageNotFound />;
+	}
+
+	const project = getProject(projectId);
 	if (!project) {
 		return <PageNotFound />;
 	}
 
 	return <ProjectDetail project={project} />;
+}
+
+export async function getStaticProps({ params }: { params: { id?: string } }) {
+	return { props: { projectId: params.id } };
+}
+
+export async function getStaticPaths() {
+	return {
+		paths: projectPaths,
+		fallback: false,
+	};
 }

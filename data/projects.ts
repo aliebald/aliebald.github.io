@@ -29,3 +29,13 @@ export const projects: Project[] = [
 	p2PSecurityGossip,
 	miLightController,
 ];
+
+export const projectPaths: string[] = projects.map((p) => `/projects/${p.href}`);
+
+export function getProject(id: string): Project | undefined {
+	const project = projects.find((p) => p.href == id);
+	if (!project) {
+		console.error(`Did not find project with id: "${id}"`);
+	}
+	return project;
+}
