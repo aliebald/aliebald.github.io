@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMail, IconBrandLinkedin, IconBrandGithub } from "@tabler/icons";
-import { createStyles, Header as MantineHeader, Group, Container, Burger } from "@mantine/core";
+import { createStyles, Header as MantineHeader, Group, Container, Burger, Transition } from "@mantine/core";
 import { ColorSchemeToggle } from "../../Molecules/ColorSchemeToggle/ColorSchemeToggle";
 import QuickIcon from "../../Molecules/QuickIcon/QuickIcon";
 import { useRouter } from "next/router";
+import SideNav from "../SideNav/SideNav";
 
 const useStyles = createStyles((theme) => ({
 	inner: {
@@ -35,14 +36,6 @@ const useStyles = createStyles((theme) => ({
 		},
 	},
 
-	burger: {
-		marginRight: theme.spacing.md,
-
-		[theme.fn.largerThan("sm")]: {
-			display: "none",
-		},
-	},
-
 	link: {
 		display: "block",
 		lineHeight: 1,
@@ -56,6 +49,11 @@ const useStyles = createStyles((theme) => ({
 		"&:hover": {
 			backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
 		},
+
+		[theme.fn.smallerThan("sm")]: {
+			fontSize: theme.fontSizes.md,
+			padding: `${theme.spacing.md}px ${theme.spacing.xl}px`,
+		},
 	},
 
 	linkActive: {
@@ -67,7 +65,6 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function Header({ links }: { links: { label: string; href: string }[] }) {
-	const [opened, { toggle }] = useDisclosure(false);
 	const router = useRouter();
 	const { classes, cx } = useStyles();
 
@@ -83,11 +80,10 @@ export default function Header({ links }: { links: { label: string; href: string
 	return (
 		<MantineHeader height={56} pb="md">
 			<Container className={classes.inner}>
-				<Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
+				<SideNav>{linkElements}</SideNav>
 				<Group className={classes.links} spacing={5}>
 					{linkElements}
 				</Group>
-
 				<Group spacing={0} className={classes.social} position="right" noWrap>
 					<QuickIcon
 						href="https://github.com/aliebald/"
