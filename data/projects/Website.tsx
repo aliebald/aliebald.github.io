@@ -1,5 +1,6 @@
 import { Project } from "../projects";
 import { mapBadges } from "../badges";
+import UnderConstruction from "../../components/Molecules/UnderConstruction/UnderConstruction";
 
 const project: Project = {
 	title: "My Website",
@@ -13,5 +14,5 @@ const project: Project = {
 export default project;
 
 function WebsiteProject(): JSX.Element {
-	return <div>Website</div>;
+	return <UnderConstruction />;
 }

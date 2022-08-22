@@ -1,4 +1,4 @@
-import { Container, Title, Text } from "@mantine/core";
+import { Container, Title, Text, Center } from "@mantine/core";
 import React from "react";
 import { Project } from "../../../data/projects";
 import Head from "next/head";
@@ -15,9 +15,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 				<title>Liebald | {project.title}</title>
 				<meta name="description" content={project.abstract} />
 			</Head>
-			<Container>
-				<Title>{project.title}</Title>
-				<BadgeCollection badges={project.badges} />
+			<Container py="lg">
+				<Title align="center">{project.title}</Title>
+				<BadgeCollection badges={project.badges} position="center" />
 				<Text>{project.abstract}</Text>
 			</Container>
 			<project.description />

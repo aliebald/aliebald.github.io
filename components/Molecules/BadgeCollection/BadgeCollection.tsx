@@ -1,21 +1,20 @@
-import { Badge, Group } from "@mantine/core";
+import { Badge, Group, GroupPosition } from "@mantine/core";
 import { Badge as BadgeData } from "../../../data/badges";
-import styles from "./BadgeCollection.module.css";
 
 interface BadgeCollectionProps {
 	badges: BadgeData[];
+	position?: GroupPosition;
 }
 
-export default function BadgeCollection({ badges }: BadgeCollectionProps) {
+export default function BadgeCollection({ badges, position }: BadgeCollectionProps) {
 	return (
-		<Group spacing={4} my="xs">
+		<Group spacing={4} my="xs" position={position}>
 			{badges.map((badge) => (
 				<Badge
 					key={badge.title}
 					color={badge.color}
 					variant={badge.gradient ? "gradient" : "filled"}
 					gradient={badge.gradient}
-					className={styles.badge}
 				>
 					{badge.title}
 				</Badge>

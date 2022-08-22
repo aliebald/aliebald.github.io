@@ -1,5 +1,6 @@
 import { Project } from "../projects";
 import { mapBadges } from "../badges";
+import UnderConstruction from "../../components/Molecules/UnderConstruction/UnderConstruction";
 
 const project: Project = {
 	title: "Newton Runner",
@@ -13,5 +14,5 @@ const project: Project = {
 export default project;
 
 function NewtonRunnerProject(): JSX.Element {
-	return <div>NewtonRunnerProject</div>;
+	return <UnderConstruction />;
 }

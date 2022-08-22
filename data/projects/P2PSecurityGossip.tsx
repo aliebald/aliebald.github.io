@@ -1,5 +1,6 @@
 import { Project } from "../projects";
 import { mapBadges } from "../badges";
+import UnderConstruction from "../../components/Molecules/UnderConstruction/UnderConstruction";
 
 const project: Project = {
 	title: "P2P Security Gossip",
@@ -13,5 +14,5 @@ const project: Project = {
 export default project;
 
 function P2PProject(): JSX.Element {
-	return <div>P2PProject</div>;
+	return <UnderConstruction />;
 }
