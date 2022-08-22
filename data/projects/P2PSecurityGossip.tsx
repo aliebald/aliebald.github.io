@@ -7,7 +7,7 @@ const project: Project = {
 	badges: mapBadges(["Python", "P2P"]),
 	href: "p2p-security-gossip",
 	abstract:
-		"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum",
+		"Gossip implementation developed as part of the Peer-to-Peer-Systems and Security course at Technical University of Munich. Provides connectivity in form of a low level, distributed peer-to-peer network with a flat hierarchy.",
 	description: P2PProject,
 	links: [
 		{

@@ -7,7 +7,7 @@ const project: Project = {
 	badges: mapBadges(["Python", "TypeScript", "React", "WebRTC"]),
 	href: "experimental-hub",
 	abstract:
-		"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum",
+		"An online tool for researchers in the field of synchrony to host and conduct customizable online experiments with users. I designed and developed the networking architecture and backend as part of my bachelors thesis.",
 	description: ExperimentalHubProject,
 	links: [
 		{

@@ -14,10 +14,8 @@ const Projects: NextPage = () => {
 				Projects
 			</Title>
 			<Text color="dimmed" size="lg" align="center">
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores
-				duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd
-				magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum
-				dolor sit amet, consetetur
+				This page lists my major past and current projects. All projects are available on GitHub, the link as
+				well as other links can be found on the project detail page.
 			</Text>
 
 			{projects.map((p) => (
