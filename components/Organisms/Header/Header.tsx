@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMail, IconBrandLinkedin, IconBrandGithub } from "@tabler/icons";
-import { createStyles, Header, Group, ActionIcon, Container, Burger, Space, Tooltip } from "@mantine/core";
+import { createStyles, Header as MantineHeader, Group, Container, Burger } from "@mantine/core";
 import { ColorSchemeToggle } from "../../Molecules/ColorSchemeToggle/ColorSchemeToggle";
 import QuickIcon from "../../Molecules/QuickIcon/QuickIcon";
 import { useRouter } from "next/router";
@@ -67,7 +66,7 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
-export default function CustomHeader({ links }: { links: { label: string; href: string }[] }) {
+export default function Header({ links }: { links: { label: string; href: string }[] }) {
 	const [opened, { toggle }] = useDisclosure(false);
 	const router = useRouter();
 	const { classes, cx } = useStyles();
@@ -82,7 +81,7 @@ export default function CustomHeader({ links }: { links: { label: string; href: 
 	const iconStroke = 1.5;
 
 	return (
-		<Header height={56} mb="md">
+		<MantineHeader height={56} mb="md">
 			<Container className={classes.inner}>
 				<Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
 				<Group className={classes.links} spacing={5}>
@@ -108,6 +107,6 @@ export default function CustomHeader({ links }: { links: { label: string; href: 
 					<ColorSchemeToggle size={iconSize} stroke={iconStroke} />
 				</Group>
 			</Container>
-		</Header>
+		</MantineHeader>
 	);
 }

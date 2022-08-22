@@ -3,7 +3,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import CustomHeader from "../components/Organisms/Header/Header";
+import Header from "../components/Organisms/Header/Header";
+import Footer from "../components/Organisms/Footer/Footer";
 
 const links = [
 	{
@@ -44,8 +45,9 @@ function App({ Component, pageProps }: AppProps) {
 
 			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
 				<MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
-					<CustomHeader links={links} />
+					<Header links={links} />
 					<Component {...pageProps} />
+					<Footer />
 				</MantineProvider>
 			</ColorSchemeProvider>
 		</>
