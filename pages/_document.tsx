@@ -1,8 +1,8 @@
 import Document, { DocumentContext } from "next/document";
 import { ServerStyles, createStylesServer } from "@mantine/next";
-import { rtlCache } from "../rtl-cache";
+import { emotionCache } from "../emotion-cache";
 
-const stylesServer = createStylesServer(rtlCache);
+const stylesServer = createStylesServer(emotionCache);
 
 export default class _Document extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
