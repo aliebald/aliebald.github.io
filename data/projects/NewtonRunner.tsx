@@ -71,7 +71,13 @@ function NewtonRunnerProject(): JSX.Element {
 			</Text>
 			<Text>
 				The Game can be found at{" "}
-				<Text component="a" href="https://newton-runner.de" color="blue">
+				<Text
+					component="a"
+					href="https://newton-runner.de"
+					color="blue"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					newton-runner.de
 				</Text>
 				. Please note that logging in or sending any feedback wont work since the backend has stopped.

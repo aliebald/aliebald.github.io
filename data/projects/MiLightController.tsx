@@ -90,7 +90,13 @@ function MiLightControllerProject(): JSX.Element {
 			</Text>
 			<Text>
 				This beat detection algorithm is loosely based on the article{" "}
-				<Text href="https://www.gamedev.net/reference/articles/article1952.asp" component="a" color="blue">
+				<Text
+					href="https://www.gamedev.net/reference/articles/article1952.asp"
+					component="a"
+					color="blue"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					Beat Detection Algorithms
 				</Text>{" "}
 				by Frédéric Patin. If you are interested in this topic, a more in depth description and more complex

@@ -13,6 +13,7 @@ import { Project } from "../../../data/projects";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
 import ProjectLinkBtn from "../../Molecules/ProjectLinkBtn/ProjectLinkBtn";
 import { emotionCache } from "../../../emotion-cache";
+import PageHeader from "../../Atoms/PageHeader/PageHeader";
 
 interface ProjectDetailProps {
 	project: Project;
@@ -65,18 +66,16 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 				<title>{`${project.title} | Alexander Liebald`}</title>
 				<meta name="description" content={project.abstract} />
 			</Head>
-			<div className={classes.header}>
-				<Container py="md">
-					<Title align="center">{project.title}</Title>
-					<BadgeCollection badges={project.badges} position="center" />
-					<Text align="center">{project.abstract}</Text>
-					<Group spacing="xs" position="center" py="md">
-						{project.links?.map((link, index) => (
-							<ProjectLinkBtn link={link} key={index} />
-						))}
-					</Group>
-				</Container>
-			</div>
+			<PageHeader>
+				<Title align="center">{project.title}</Title>
+				<BadgeCollection badges={project.badges} position="center" />
+				<Text align="center">{project.abstract}</Text>
+				<Group spacing="xs" position="center" py="md">
+					{project.links?.map((link, index) => (
+						<ProjectLinkBtn link={link} key={index} />
+					))}
+				</Group>
+			</PageHeader>
 			<MantineProvider withGlobalStyles withNormalizeCSS theme={projectDetailTheme} emotionCache={emotionCache}>
 				<project.description />
 			</MantineProvider>

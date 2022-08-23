@@ -1,28 +1,27 @@
 import { Container, Title, Text } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
+import ExtendedPageHeader from "../../components/Molecules/ExtendedPageHeader/ExtendedPageHeader";
 import ProjectListElement from "../../components/Organisms/ProjectListElement/ProjectListElement";
 import { projects } from "../../data/projects";
 
 const Projects: NextPage = () => {
 	return (
-		<Container>
-			<Head>
-				<title>Projects | Alexander Liebald</title>
-				<meta name="description" content="Projects by Alexander Liebald" />
-			</Head>
-			<Title align="center" pt="lg" pb="md">
-				Projects
-			</Title>
-			<Text color="dimmed" size="lg" align="center">
-				This page lists my major past and current projects. All projects are available on GitHub, the link as
-				well as other links can be found on the project detail page.
-			</Text>
-
-			{projects.map((p) => (
-				<ProjectListElement {...p} key={p.title} />
-			))}
-		</Container>
+		<>
+			<ExtendedPageHeader
+				title="Projects"
+				subtitle="This page lists my major past and current projects. All projects are available on GitHub, the link as well as other links can be found on the project detail page."
+			/>
+			<Container>
+				<Head>
+					<title>Projects | Alexander Liebald</title>
+					<meta name="description" content="Projects by Alexander Liebald" />
+				</Head>
+				{projects.map((p) => (
+					<ProjectListElement {...p} key={p.title} />
+				))}
+			</Container>
+		</>
 	);
 };
 
