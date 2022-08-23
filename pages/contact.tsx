@@ -11,7 +11,7 @@ export default function Contact() {
 				<title>Contact | Alexander Liebald</title>
 			</Head>
 			<ExtendedPageHeader title="Contact" subtitle="Lets get in touch!" />
-			<Container>
+			<Container pb="lg">
 				<Title pt="lg" pb="md" order={2}>
 					Bugs &amp; Issues
 				</Title>

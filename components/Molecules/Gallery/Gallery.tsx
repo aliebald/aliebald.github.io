@@ -6,6 +6,7 @@ import { Carousel } from "@mantine/carousel";
 
 interface GalleryProps {
 	items: GalleryImage[];
+	autoplayDelay?: number;
 }
 
 export interface GalleryImage {
@@ -22,8 +23,8 @@ const useStyles = createStyles((theme, _params) => ({
 	},
 }));
 
-export default function Gallery({ items }: GalleryProps) {
-	const autoplay = useRef(Autoplay({ delay: 10 * 1000 }));
+export default function Gallery({ items, autoplayDelay }: GalleryProps) {
+	const autoplay = useRef(Autoplay({ delay: autoplayDelay || 10 * 1000 }));
 	const { classes } = useStyles();
 
 	return (

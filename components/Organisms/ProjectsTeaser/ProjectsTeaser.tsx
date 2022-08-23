@@ -15,7 +15,7 @@ export default function ProjectsTeaser() {
 	const projects = [website, commonSteamGames, newtonRunner, experimentalHub];
 
 	return (
-		<Container className={styles.container} pb="md">
+		<Container className={styles.container} pb="lg">
 			<Title order={1} align="center" pt="lg" pb="md">
 				Interesting Projects
 			</Title>

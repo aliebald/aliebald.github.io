@@ -12,7 +12,7 @@ const Projects: NextPage = () => {
 				title="Projects"
 				subtitle="This page lists my major past and current projects. All projects are available on GitHub, the link as well as other links can be found on the project detail page."
 			/>
-			<Container>
+			<Container pb="lg">
 				<Head>
 					<title>Projects | Alexander Liebald</title>
 					<meta name="description" content="Projects by Alexander Liebald" />

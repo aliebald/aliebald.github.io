@@ -84,7 +84,7 @@ function NewtonRunnerProject(): JSX.Element {
 			</Text>
 
 			<Title pb="md">Gallery</Title>
-			<Gallery items={images} />
+			<Gallery items={images} autoplayDelay={12} />
 		</Container>
 	);
 }

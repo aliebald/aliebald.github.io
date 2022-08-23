@@ -1,0 +1,12 @@
+.progress {
+	position: sticky;
+	position: -webkit-sticky;
+	height: 4px;
+	margin-top: -4px;
+	top: 0px;
+	z-index: 10;
+}
+
+.progress>div {
+	transition: .5s;
+}

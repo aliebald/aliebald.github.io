@@ -1,44 +1,18 @@
 import Head from "next/head";
-import {
-	Container,
-	Title,
-	Text,
-	Group,
-	MantineProvider,
-	useMantineColorScheme,
-	MantineThemeOverride,
-	createStyles,
-} from "@mantine/core";
+import { Title, Text, Group, MantineProvider, useMantineColorScheme, MantineThemeOverride, Space } from "@mantine/core";
 import { Project } from "../../../data/projects";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
 import ProjectLinkBtn from "../../Molecules/ProjectLinkBtn/ProjectLinkBtn";
 import { emotionCache } from "../../../emotion-cache";
 import PageHeader from "../../Atoms/PageHeader/PageHeader";
+import PageProgress from "../../Atoms/PageProgress/PageProgress";
+import LinkButton from "../../Atoms/LinkButton/LinkButton";
 
 interface ProjectDetailProps {
 	project: Project;
 }
 
-const useStyles = createStyles((theme, _params, getRef) => ({
-	header: {
-		backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[1],
-		boxShadow: theme.shadows.md,
-		paddingTop: "2.5rem",
-		paddingBottom: "2.5rem",
-
-		[theme.fn.smallerThan("md")]: {
-			paddingTop: "1.5rem",
-			paddingBottom: "1.5rem",
-		},
-		[theme.fn.smallerThan("sm")]: {
-			paddingTop: ".5rem",
-			paddingBottom: ".5rem",
-		},
-	},
-}));
-
 export default function ProjectDetail({ project }: ProjectDetailProps) {
-	const { classes } = useStyles();
 	const { colorScheme } = useMantineColorScheme();
 
 	const projectDetailTheme: MantineThemeOverride = {
@@ -60,25 +34,44 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 		},
 	};
 
+	const links = (
+		<>
+			{project.links?.map((link, index) => (
+				<ProjectLinkBtn link={link} key={index} />
+			))}
+		</>
+	);
+
 	return (
-		<div>
+		<article>
 			<Head>
 				<title>{`${project.title} | Alexander Liebald`}</title>
 				<meta name="description" content={project.abstract} />
 			</Head>
+			<PageProgress />
 			<PageHeader>
 				<Title align="center">{project.title}</Title>
 				<BadgeCollection badges={project.badges} position="center" />
 				<Text align="center">{project.abstract}</Text>
 				<Group spacing="xs" position="center" py="md">
-					{project.links?.map((link, index) => (
-						<ProjectLinkBtn link={link} key={index} />
-					))}
+					{links}
 				</Group>
 			</PageHeader>
 			<MantineProvider withGlobalStyles withNormalizeCSS theme={projectDetailTheme} emotionCache={emotionCache}>
 				<project.description />
 			</MantineProvider>
-		</div>
+			<Space h="sm" />
+			<PageHeader>
+				<Title order={3} align="center">
+					Interested? Find out More
+				</Title>
+				<Group spacing="xs" position="center" py="md">
+					{links}
+					<LinkButton href="/projects" radius="xl" variant="light">
+						More Projects
+					</LinkButton>
+				</Group>
+			</PageHeader>
+		</article>
 	);
 }
