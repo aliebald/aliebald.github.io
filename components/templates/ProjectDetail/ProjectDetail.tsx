@@ -53,7 +53,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 			},
 			Text: {
 				defaultProps: {
-					// align: "center",
+					pb: "xs",
 				},
 			},
 		},

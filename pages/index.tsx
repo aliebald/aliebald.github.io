@@ -18,10 +18,10 @@ const Home: NextPage = () => {
 						ut labore et dolore magna aliquyam erat, sed diam voluptua.
 					</Text>
 					<Group position="center">
-						<LinkButton href="/" size="lg">
+						<LinkButton href="/projects" size="lg">
 							Discover Projects
 						</LinkButton>
-						<LinkButton href="/" size="lg" variant="outline">
+						<LinkButton href="/contact" size="lg" variant="outline">
 							Contact
 						</LinkButton>
 					</Group>

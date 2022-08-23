@@ -41,6 +41,7 @@ function App({ Component, pageProps }: AppProps) {
 		<>
 			<Head>
 				<title>Alexander Liebald</title>
+				<meta name="description" content="Personal website of Alexander Liebald" />
 				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
 			</Head>
 

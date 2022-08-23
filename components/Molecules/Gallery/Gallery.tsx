@@ -1,5 +1,4 @@
 import Image, { StaticImageData } from "next/image";
-import styles from "./Gallery.module.css";
 import { Center, createStyles } from "@mantine/core";
 import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
@@ -11,8 +10,6 @@ interface GalleryProps {
 
 export interface GalleryImage {
 	src: StaticImageData;
-	width: number;
-	height: number;
 	alt: string;
 }
 
@@ -43,13 +40,7 @@ export default function Gallery({ items }: GalleryProps) {
 			{items.map((item, index) => (
 				<Carousel.Slide key={index}>
 					<Center>
-						<Image
-							src={item.src}
-							width={item.width}
-							height={item.height}
-							alt={item.alt}
-							className={classes.image}
-						/>
+						<Image src={item.src} alt={item.alt} className={classes.image} />
 					</Center>
 				</Carousel.Slide>
 			))}

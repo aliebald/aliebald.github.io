@@ -36,27 +36,19 @@ function CommonSteamGamesProject(): JSX.Element {
 	const images: GalleryImage[] = [
 		{
 			src: dndGif,
-			width: 800,
-			height: 389,
 			alt: "Drag and Drop Demo",
 		},
 		{
 			src: customGameImg,
-			width: 874,
-			height: 461,
 			alt: "Custom Game Input",
 		},
 		{
 			src: homeImg,
-			width: 1917,
-			height: 939,
 			alt: "Common Steam Games Landing Page",
 		},
 
 		{
 			src: matchingImg,
-			width: 1919,
-			height: 935,
 			alt: "Matching Overview",
 		},
 	];
@@ -111,7 +103,7 @@ function CommonSteamGamesProject(): JSX.Element {
 					<em>...</em>
 				</List.Item>
 			</List>
-			<Title>Gallery</Title>
+			<Title pb="md">Gallery</Title>
 			<Gallery items={images} />
 			<Text size="xs" color="dimmed">
 				I am not associated with the steam accounts shown in the gallery. They were chosen randomly from
