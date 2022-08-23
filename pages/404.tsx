@@ -8,7 +8,7 @@ export default function PageNotFound() {
 	return (
 		<Container className={styles.container}>
 			<Head>
-				<title>Liebald | 404 - Page Not Found</title>
+				<title>404 - Page Not Found | Alexander Liebald</title>
 			</Head>
 			<Title order={1} pt="lg">
 				Page Not Found

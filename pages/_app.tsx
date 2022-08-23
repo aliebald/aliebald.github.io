@@ -32,7 +32,7 @@ function App({ Component, pageProps }: AppProps) {
 
 	useEffect(() => {
 		const pastScheme = localStorage.colorScheme;
-		if (pastScheme !== colorScheme) {
+		if (pastScheme && pastScheme !== colorScheme) {
 			setColorScheme(pastScheme);
 		}
 	}, [colorScheme]);
@@ -40,9 +40,14 @@ function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
-				<title>Alexander Liebald</title>
-				<meta name="description" content="Personal website of Alexander Liebald" />
+				<title>Alexander Liebald | Personal Website</title>
+				<meta
+					name="description"
+					content="Personal website of Alexander Liebald. Past projects, contact and more."
+				/>
 				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+				<link rel="icon" type="image" href="favicon.png" />
+				<meta name="theme-color" content={colorScheme === "dark" ? "#1A1B1E" : "#fff"} />
 			</Head>
 
 			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>

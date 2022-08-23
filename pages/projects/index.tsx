@@ -8,7 +8,7 @@ const Projects: NextPage = () => {
 	return (
 		<Container>
 			<Head>
-				<title>Liebald | Projects</title>
+				<title>Projects | Alexander Liebald</title>
 				<meta name="description" content="Projects by Alexander Liebald" />
 			</Head>
 			<Title align="center" pt="lg" pb="md">

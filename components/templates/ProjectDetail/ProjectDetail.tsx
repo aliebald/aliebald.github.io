@@ -62,7 +62,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 	return (
 		<div>
 			<Head>
-				<title>{`Liebald | ${project.title}`}</title>
+				<title>{`${project.title} | Alexander Liebald`}</title>
 				<meta name="description" content={project.abstract} />
 			</Head>
 			<div className={classes.header}>
