@@ -24,7 +24,7 @@ const useStyles = createStyles((theme, _params) => ({
 }));
 
 export default function Gallery({ items, autoplayDelay }: GalleryProps) {
-	const autoplay = useRef(Autoplay({ delay: autoplayDelay || 10 * 1000 }));
+	const autoplay = useRef(Autoplay({ delay: (autoplayDelay || 10) * 1000 }));
 	const { classes } = useStyles();
 
 	return (
