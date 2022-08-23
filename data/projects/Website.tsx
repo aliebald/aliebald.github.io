@@ -16,7 +16,7 @@ const project: Project = {
 			label: "GitHub",
 		},
 		{
-			href: "https://aliebald.github.io/",
+			href: "https://liebald.dev",
 			type: "website",
 			label: "Website",
 		},

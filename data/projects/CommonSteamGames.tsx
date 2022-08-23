@@ -23,7 +23,7 @@ const project: Project = {
 			label: "GitHub - Frontend",
 		},
 		{
-			href: "https://aliebald.github.io/common-steam-games",
+			href: "https://common-steam-games.liebald.dev",
 			type: "website",
 			label: "Website",
 		},

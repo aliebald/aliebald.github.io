@@ -96,7 +96,7 @@ export default function Header({ links }: { links: { label: string; href: string
 						icon={<IconBrandLinkedin size={iconSize} stroke={iconStroke} />}
 					/>
 					<QuickIcon
-						href="mailto:contact.liebald@gmail.com"
+						href="mailto:contact@liebald.dev"
 						tooltip="Send Me a Mail"
 						icon={<IconMail size={iconSize} stroke={iconStroke} />}
 					/>
