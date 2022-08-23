@@ -9,6 +9,7 @@ import website from "../../../data/projects/Website";
 import commonSteamGames from "../../../data/projects/CommonSteamGames";
 import newtonRunner from "../../../data/projects/NewtonRunner";
 import experimentalHub from "../../../data/projects/ExperimentalHub";
+import LinkButton from "../../Atoms/LinkButton/LinkButton";
 
 export default function ProjectsTeaser() {
 	const projects = [website, commonSteamGames, newtonRunner, experimentalHub];
@@ -23,9 +24,7 @@ export default function ProjectsTeaser() {
 					<ProjectCard project={p} key={p.href} />
 				))}
 			</SimpleGrid>
-			<Link href="/projects">
-				<Button>See All Projects</Button>
-			</Link>
+			<LinkButton href="/projects">See All Projects</LinkButton>
 		</Container>
 	);
 }

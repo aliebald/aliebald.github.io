@@ -1,6 +1,7 @@
 import { Tooltip, Button } from "@mantine/core";
 import { Link } from "../../../data/projects";
 import { IconBrandGithub, IconWorld, IconNotebook } from "@tabler/icons";
+import { NextLink } from "@mantine/next";
 
 interface ProjectLinkBtnProps {
 	link: Link;
@@ -8,13 +9,19 @@ interface ProjectLinkBtnProps {
 
 export default function ProjectLinkBtn({ link }: ProjectLinkBtnProps) {
 	return (
-		<a href={link.href} target="_blank" rel="noopener noreferrer">
-			<Tooltip label={link.href} openDelay={500} position="bottom">
-				<Button radius="xl" variant="light" leftIcon={getIcon(link.type)}>
-					{link.label}
-				</Button>
-			</Tooltip>
-		</a>
+		<Tooltip label={link.href} openDelay={500} position="bottom">
+			<Button
+				radius="xl"
+				variant="light"
+				leftIcon={getIcon(link.type)}
+				component={NextLink}
+				href={link.href}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{link.label}
+			</Button>
+		</Tooltip>
 	);
 }
 

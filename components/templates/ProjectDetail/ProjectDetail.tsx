@@ -1,20 +1,19 @@
+import Head from "next/head";
 import {
 	Container,
 	Title,
 	Text,
-	Button,
 	Group,
 	MantineProvider,
 	useMantineColorScheme,
 	MantineThemeOverride,
 	createStyles,
-	Tooltip,
 } from "@mantine/core";
-import React from "react";
 import { Project } from "../../../data/projects";
-import Head from "next/head";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
 import ProjectLinkBtn from "../../Molecules/ProjectLinkBtn/ProjectLinkBtn";
+import { emotionCache } from "../../../emotion-cache";
+
 interface ProjectDetailProps {
 	project: Project;
 }
@@ -78,7 +77,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 					</Group>
 				</Container>
 			</div>
-			<MantineProvider withGlobalStyles withNormalizeCSS theme={projectDetailTheme}>
+			<MantineProvider withGlobalStyles withNormalizeCSS theme={projectDetailTheme} emotionCache={emotionCache}>
 				<project.description />
 			</MantineProvider>
 		</div>

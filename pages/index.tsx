@@ -1,6 +1,7 @@
 import { Container, Title, Text, Button, Group, Center, Grid, SimpleGrid, Box, MantineTheme } from "@mantine/core";
 import type { NextPage } from "next";
 import Link from "next/link";
+import LinkButton from "../components/Atoms/LinkButton/LinkButton";
 import ProjectsTeaser from "../components/Organisms/ProjectsTeaser/ProjectsTeaser";
 import styles from "../styles/Home.module.css";
 
@@ -17,14 +18,12 @@ const Home: NextPage = () => {
 						ut labore et dolore magna aliquyam erat, sed diam voluptua.
 					</Text>
 					<Group position="center">
-						<Link href="/projects">
-							<Button size="lg">Discover Projects</Button>
-						</Link>
-						<Link href="/contact">
-							<Button size="lg" variant="outline">
-								Contact
-							</Button>
-						</Link>
+						<LinkButton href="/" size="lg">
+							Discover Projects
+						</LinkButton>
+						<LinkButton href="/" size="lg" variant="outline">
+							Contact
+						</LinkButton>
 					</Group>
 				</Container>
 			</Center>

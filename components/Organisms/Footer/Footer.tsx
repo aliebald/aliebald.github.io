@@ -35,7 +35,9 @@ export default function Footer() {
 			<Container className={classes.container}>
 				<Text>&#169; 2022 Alexander Liebald</Text>
 				<Group className={classes.links}>
-					<Link href="/contact">Contact</Link>
+					<Link href="/contact">
+						<a>Contact</a>
+					</Link>
 					<a href="https://aliebald.github.io/impressum/" target="_blank" rel="noopener noreferrer">
 						Impressum
 					</a>

@@ -6,8 +6,9 @@ import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
 
 export default function ProjectListElement({ title, badges, abstract, href }: Project) {
 	return (
-		<Link href={`projects/${href}`}>
+		<Link href={`projects/${href}`} passHref>
 			<Paper
+				component="a"
 				shadow="sm"
 				radius="md"
 				p="sm"

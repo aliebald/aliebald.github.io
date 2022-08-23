@@ -1,4 +1,4 @@
-import { Container, Title, Text, Button } from "@mantine/core";
+import { Container, Title, Text } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import ProjectListElement from "../../components/Organisms/ProjectListElement/ProjectListElement";
