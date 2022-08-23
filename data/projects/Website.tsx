@@ -4,7 +4,7 @@ import UnderConstruction from "../../components/Molecules/UnderConstruction/Unde
 import { Title, Container, Text } from "@mantine/core";
 
 const project: Project = {
-	title: "My Website",
+	title: "Personal Website",
 	badges: mapBadges(["TypeScript", "React", "NextJs", "Mantine"]),
 	href: "website",
 	abstract: "My most recent project, this Website! A place were I present my past and current projects.",
@@ -29,10 +29,11 @@ function WebsiteProject(): JSX.Element {
 	return (
 		<Container>
 			<UnderConstruction />
-			{/*
-      <Title>WIP</Title>
-			<Text>TODO</Text>
-       */}
+			<Title>This Website!</Title>
+			<Text>
+				This page will contain some information about my personal website in the future. For now, feel free to
+				explore it yourself.
+			</Text>{" "}
 		</Container>
 	);
 }
