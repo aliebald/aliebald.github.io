@@ -1,5 +1,3 @@
-import React from "react";
-import Link from "next/link";
 import styles from "./ProjectsTeaser.module.css";
 import ProjectCard from "../../Molecules/ProjectCard/ProjectCard";
 import { Container, Title, SimpleGrid, Button } from "@mantine/core";
@@ -11,11 +9,15 @@ import newtonRunner from "../../../data/projects/NewtonRunner";
 import experimentalHub from "../../../data/projects/ExperimentalHub";
 import LinkButton from "../../Atoms/LinkButton/LinkButton";
 
-export default function ProjectsTeaser() {
+interface ProjectsTeaserProps {
+	className?: string;
+}
+
+export default function ProjectsTeaser({ className }: ProjectsTeaserProps) {
 	const projects = [website, commonSteamGames, newtonRunner, experimentalHub];
 
 	return (
-		<Container className={styles.container} pb="lg">
+		<Container className={`${styles.container} ${className ?? ""}`}>
 			<Title order={1} align="center" pt="lg" pb="md">
 				Interesting Projects
 			</Title>

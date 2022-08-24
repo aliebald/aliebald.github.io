@@ -10,7 +10,7 @@ export default function Contact() {
 			<Head>
 				<title>Contact | Alexander Liebald</title>
 			</Head>
-			<ExtendedPageHeader title="Contact" subtitle="Lets get in touch!" />
+			<ExtendedPageHeader title="Contact" subtitle="Let's get in touch!" />
 			<Container pb="lg">
 				<Title pt="lg" pb="md" order={2}>
 					Bugs &amp; Issues

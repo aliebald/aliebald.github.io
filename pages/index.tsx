@@ -1,19 +1,21 @@
-import { Container, Title, Text, Button, Group, Center, Grid, SimpleGrid, Box, MantineTheme } from "@mantine/core";
+import { Container, Title, Text, Group, Center } from "@mantine/core";
 import type { NextPage } from "next";
-import Link from "next/link";
-import LinkButton from "../components/Atoms/LinkButton/LinkButton";
 import ProjectsTeaser from "../components/Organisms/ProjectsTeaser/ProjectsTeaser";
 import styles from "../styles/Home.module.css";
+import LinkButton from "../components/Atoms/LinkButton/LinkButton";
+import WaveSpacer from "../components/Atoms/WaveSpacer/WaveSpacer";
+import UnderConstruction from "../components/Molecules/UnderConstruction/UnderConstruction";
 
 const Home: NextPage = () => {
 	return (
 		<>
-			<Center className={styles.section}>
+			<Center className={styles.heroHeader}>
 				<Container className={styles.container}>
 					<Title order={1} align="center">
 						I Do Stuff!
 					</Title>
 					<Text color="dimmed" size="lg" align="center" py="md">
+						This might still be a placeholder, but feel free to take a look around! <br />
 						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
 						ut labore et dolore magna aliquyam erat, sed diam voluptua.
 					</Text>
@@ -27,7 +29,8 @@ const Home: NextPage = () => {
 					</Group>
 				</Container>
 			</Center>
-			<ProjectsTeaser />
+			<WaveSpacer />
+			<ProjectsTeaser className={styles.teaser} />
 		</>
 	);
 };

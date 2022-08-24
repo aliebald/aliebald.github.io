@@ -1,4 +1,4 @@
-.progress {
+div.progress {
 	position: sticky;
 	position: -webkit-sticky;
 	height: 4px;
@@ -7,6 +7,6 @@
 	z-index: 10;
 }
 
-.progress>div {
+div.progress>div {
 	transition: .5s;
 }

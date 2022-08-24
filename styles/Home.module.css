@@ -1,4 +1,8 @@
-.section {
-	min-height: 50vh;
+.heroHeader {
+	min-height: 60vh;
 	margin: auto;
+}
+
+.teaser {
+	margin-bottom: 5vh;
 }
