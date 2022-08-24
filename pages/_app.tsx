@@ -47,6 +47,7 @@ function App({ Component, pageProps }: AppProps) {
 				/>
 				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
 				<link rel="icon" type="image" href="favicon.png" />
+				<link rel="manifest" href="manifest.webmanifest" />
 				<meta name="theme-color" content={colorScheme === "dark" ? "#1A1B1E" : "#fff"} />
 			</Head>
 
