@@ -64,6 +64,10 @@ export const badges: Badges = {
 	MiLight: {
 		title: "MiLight",
 	},
+	ChartJs: {
+		title: "Chart.Js",
+		gradient: { from: "pink.7", to: "yellow.7", deg: gradientDegree },
+	},
 } as const;
 
 // TODO

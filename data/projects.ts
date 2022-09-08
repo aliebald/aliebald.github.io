@@ -23,9 +23,9 @@ export type Project = {
 
 export const projects: Project[] = [
 	website,
+	experimentalHub,
 	commonSteamGames,
 	newtonRunner,
-	experimentalHub,
 	p2PSecurityGossip,
 	miLightController,
 ];
