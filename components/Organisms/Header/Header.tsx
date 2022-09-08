@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { useDisclosure } from "@mantine/hooks";
 import { IconMail, IconBrandLinkedin, IconBrandGithub } from "@tabler/icons";
-import { createStyles, Header as MantineHeader, Group, Container, Burger, Transition } from "@mantine/core";
+import { createStyles, Header as MantineHeader, Group, Container } from "@mantine/core";
 import { ColorSchemeToggle } from "../../Molecules/ColorSchemeToggle/ColorSchemeToggle";
 import QuickIcon from "../../Molecules/QuickIcon/QuickIcon";
 import { useRouter } from "next/router";
@@ -91,7 +90,7 @@ export default function Header({ links }: { links: { label: string; href: string
 						icon={<IconBrandGithub size={iconSize} stroke={iconStroke} />}
 					/>
 					<QuickIcon
-						href="TODO"
+						href="/contact"
 						tooltip="LinkedIn - WIP"
 						icon={<IconBrandLinkedin size={iconSize} stroke={iconStroke} />}
 					/>

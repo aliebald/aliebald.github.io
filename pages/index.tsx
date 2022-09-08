@@ -4,7 +4,6 @@ import ProjectsTeaser from "../components/Organisms/ProjectsTeaser/ProjectsTease
 import styles from "../styles/Home.module.css";
 import LinkButton from "../components/Atoms/LinkButton/LinkButton";
 import WaveSpacer from "../components/Atoms/WaveSpacer/WaveSpacer";
-import UnderConstruction from "../components/Molecules/UnderConstruction/UnderConstruction";
 
 const Home: NextPage = () => {
 	return (
