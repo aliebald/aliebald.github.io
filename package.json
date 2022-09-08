@@ -1,34 +1,36 @@
 {
-  "name": "my-website",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/server": "^11.10.0",
-    "@mantine/carousel": "^5.2.3",
-    "@mantine/core": "^5.2.0",
-    "@mantine/hooks": "^5.2.0",
-    "@mantine/next": "^5.2.0",
-    "@tabler/icons": "^1.84.0",
-    "embla-carousel-autoplay": "^7.0.1",
-    "embla-carousel-react": "^7.0.1",
-    "next": "12.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "18.7.6",
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
-    "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5",
-    "stylis": "^4.1.1",
-    "typescript": "4.7.4"
-  }
+	"name": "my-website",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"postbuild": "next-sitemap",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.0",
+		"@emotion/server": "^11.10.0",
+		"@mantine/carousel": "^5.2.3",
+		"@mantine/core": "^5.2.0",
+		"@mantine/hooks": "^5.2.0",
+		"@mantine/next": "^5.2.0",
+		"@tabler/icons": "^1.84.0",
+		"embla-carousel-autoplay": "^7.0.1",
+		"embla-carousel-react": "^7.0.1",
+		"next": "12.2.5",
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	},
+	"devDependencies": {
+		"@types/node": "18.7.6",
+		"@types/react": "18.0.17",
+		"@types/react-dom": "18.0.6",
+		"eslint": "8.22.0",
+		"eslint-config-next": "12.2.5",
+		"next-sitemap": "^3.1.21",
+		"stylis": "^4.1.1",
+		"typescript": "4.7.4"
+	}
 }
