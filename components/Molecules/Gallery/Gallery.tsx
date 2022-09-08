@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from "next/image";
-import { Center, createStyles } from "@mantine/core";
+import Image from "../../Atoms/Image/Image";
+import { StaticImageData } from "next/image";
 import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel } from "@mantine/carousel";
@@ -14,18 +14,8 @@ export interface GalleryImage {
 	alt: string;
 }
 
-const useStyles = createStyles((theme, _params) => ({
-	image: {
-		borderRadius: theme.radius.md,
-	},
-	carousel: {
-		alignItems: "center",
-	},
-}));
-
 export default function Gallery({ items, autoplayDelay }: GalleryProps) {
 	const autoplay = useRef(Autoplay({ delay: (autoplayDelay || 10) * 1000 }));
-	const { classes } = useStyles();
 
 	return (
 		<Carousel
@@ -36,13 +26,10 @@ export default function Gallery({ items, autoplayDelay }: GalleryProps) {
 			plugins={[autoplay.current]}
 			onMouseEnter={autoplay.current.stop}
 			onMouseLeave={autoplay.current.reset}
-			className={classes.carousel}
 		>
 			{items.map((item, index) => (
 				<Carousel.Slide key={index}>
-					<Center>
-						<Image src={item.src} alt={item.alt} className={classes.image} />
-					</Center>
+					<Image src={item.src} alt={item.alt} centered noPadding />
 				</Carousel.Slide>
 			))}
 		</Carousel>

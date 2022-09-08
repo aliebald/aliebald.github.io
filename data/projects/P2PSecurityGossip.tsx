@@ -1,7 +1,7 @@
 import { Project } from "../projects";
 import { mapBadges } from "../badges";
-import { Container, Title, Text, createStyles, Center } from "@mantine/core";
-import Image from "next/image";
+import { Container, Title, Text } from "@mantine/core";
+import Image from "../../components/Atoms/Image/Image";
 
 import controlFlowSVG from "../../public/images/projects/p2p-sec-gossip/control-flow.svg";
 
@@ -23,15 +23,7 @@ const project: Project = {
 
 export default project;
 
-const useStyles = createStyles((theme) => ({
-	image: {
-		borderRadius: theme.radius.md,
-	},
-}));
-
 function P2PProject(): JSX.Element {
-	const { classes } = useStyles();
-
 	return (
 		<Container>
 			<Title>Background</Title>
@@ -81,7 +73,7 @@ function P2PProject(): JSX.Element {
 				As a small sneak-peek at the above-mentioned document, the following flowchart shows the program flow.
 				It starts when the module is initiated and runs until a keyboard interrupt is detected.
 			</Text>
-			<Image src={controlFlowSVG} alt="MiLight Controller" className={classes.image} />
+			<Image src={controlFlowSVG} alt="Control Flow Graph" />
 		</Container>
 	);
 }

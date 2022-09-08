@@ -1,7 +1,7 @@
 import { Project } from "../projects";
 import { mapBadges } from "../badges";
-import { Container, createStyles, Title, Text, List } from "@mantine/core";
-import Image from "next/image";
+import { Container, Title, Text, List } from "@mantine/core";
+import Image from "../../components/Atoms/Image/Image";
 
 import imgMiLightController from "../../public/images/projects/milight/milight-controller.png";
 
@@ -23,15 +23,7 @@ const project: Project = {
 
 export default project;
 
-const useStyles = createStyles((theme) => ({
-	image: {
-		borderRadius: theme.radius.md,
-	},
-}));
-
 function MiLightControllerProject(): JSX.Element {
-	const { classes } = useStyles();
-
 	return (
 		<Container>
 			<Title>A Comprehensive Light Controller</Title>
@@ -45,7 +37,7 @@ function MiLightControllerProject(): JSX.Element {
 				bridges will already show up, you only need to select one and are ready to go! To use the build in music
 				controller, go to settings and select an audio stream from the device the server is running on.
 			</Text>
-			<Image src={imgMiLightController} alt="MiLight Controller" className={classes.image} />
+			<Image src={imgMiLightController} alt="MiLight Controller" />
 
 			<Title>Main Features</Title>
 			<List withPadding>
