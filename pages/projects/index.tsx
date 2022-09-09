@@ -18,7 +18,7 @@ const Projects: NextPage<ProjectsPageProps> = ({ ogImage }: ProjectsPageProps) =
 		<>
 			<HeadMetaTags
 				title="Projects | Alexander Liebald"
-				description="Projects by Alexander Liebald"
+				description={DESCRIPTION}
 				ogImage={ogImage}
 				pathname="projects"
 			/>
