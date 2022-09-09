@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { Title, Text, Group, MantineProvider, useMantineColorScheme, MantineThemeOverride, Space } from "@mantine/core";
 import { Project } from "../../../data/projects";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
@@ -7,12 +6,14 @@ import { emotionCache } from "../../../emotion-cache";
 import PageHeader from "../../Atoms/PageHeader/PageHeader";
 import PageProgress from "../../Atoms/PageProgress/PageProgress";
 import LinkButton from "../../Atoms/LinkButton/LinkButton";
+import HeadMetaTags from "../../Atoms/HeadMetaTags/HeadMetaTags";
 
 interface ProjectDetailProps {
 	project: Project;
+	ogImage: string;
 }
 
-export default function ProjectDetail({ project }: ProjectDetailProps) {
+export default function ProjectDetail({ project, ogImage }: ProjectDetailProps) {
 	const { colorScheme } = useMantineColorScheme();
 
 	const projectDetailTheme: MantineThemeOverride = {
@@ -44,10 +45,12 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 
 	return (
 		<article>
-			<Head>
-				<title>{`${project.title} | Alexander Liebald`}</title>
-				<meta name="description" content={project.abstract} />
-			</Head>
+			<HeadMetaTags
+				title={`${project.title} | Alexander Liebald`}
+				description={project.abstract}
+				ogImage={ogImage}
+				pathname={`projects/${project.href}`}
+			/>
 			<PageProgress />
 			<PageHeader>
 				<Title align="center">{project.title}</Title>

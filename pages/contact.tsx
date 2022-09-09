@@ -1,15 +1,25 @@
 import { Container, Text, Title } from "@mantine/core";
-import Head from "next/head";
 import React from "react";
-import PageHeader from "../components/Atoms/PageHeader/PageHeader";
 import ExtendedPageHeader from "../components/Molecules/ExtendedPageHeader/ExtendedPageHeader";
+import type { NextPage } from "next";
+import HeadMetaTags from "../components/Atoms/HeadMetaTags/HeadMetaTags";
+import generateOGImage from "../util/og-image-generator";
 
-export default function Contact() {
+interface ContactProps {
+	ogImage: string;
+}
+
+const DESCRIPTION = "Contact information for Alexander Liebald.";
+
+const Contact: NextPage<ContactProps> = ({ ogImage }: ContactProps) => {
 	return (
 		<div>
-			<Head>
-				<title>Contact | Alexander Liebald</title>
-			</Head>
+			<HeadMetaTags
+				title="Contact | Alexander Liebald"
+				description={DESCRIPTION}
+				ogImage={ogImage}
+				pathname="contact"
+			/>
 			<ExtendedPageHeader title="Contact" subtitle="Let's get in touch!" />
 			<Container pb="lg">
 				<Title pt="lg" pb="md" order={2}>
@@ -44,4 +54,12 @@ export default function Contact() {
 			</Container>
 		</div>
 	);
+};
+
+export default Contact;
+
+export async function getStaticProps() {
+	const ogImage = await generateOGImage("contact", "Contact", DESCRIPTION);
+
+	return { props: { ogImage: ogImage } };
 }

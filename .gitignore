@@ -37,3 +37,4 @@ next-env.d.ts
 
 # auto generated
 /public/sitemap.xml
+/public/images/open-graph/generated/*.png

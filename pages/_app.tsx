@@ -7,21 +7,6 @@ import Header from "../components/Organisms/Header/Header";
 import Footer from "../components/Organisms/Footer/Footer";
 import { emotionCache } from "../emotion-cache";
 
-const links = [
-	{
-		label: "Home",
-		href: "/",
-	},
-	{
-		label: "Projects",
-		href: "/projects",
-	},
-	{
-		label: "Contact",
-		href: "/contact",
-	},
-];
-
 function App({ Component, pageProps }: AppProps) {
 	const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
 	const toggleColorScheme = (value?: ColorScheme) => {
@@ -36,6 +21,21 @@ function App({ Component, pageProps }: AppProps) {
 			setColorScheme(pastScheme);
 		}
 	}, [colorScheme]);
+
+	const links = [
+		{
+			label: "Home",
+			href: "/",
+		},
+		{
+			label: "Projects",
+			href: "/projects",
+		},
+		{
+			label: "Contact",
+			href: "/contact",
+		},
+	];
 
 	return (
 		<>

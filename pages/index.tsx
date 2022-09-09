@@ -4,10 +4,24 @@ import ProjectsTeaser from "../components/Organisms/ProjectsTeaser/ProjectsTease
 import styles from "../styles/Home.module.css";
 import LinkButton from "../components/Atoms/LinkButton/LinkButton";
 import WaveSpacer from "../components/Atoms/WaveSpacer/WaveSpacer";
+import HeadMetaTags from "../components/Atoms/HeadMetaTags/HeadMetaTags";
+import generateOGImage from "../util/og-image-generator";
 
-const Home: NextPage = () => {
+const DESCRIPTION = "Personal website of Alexander Liebald. Past projects, contact and more.";
+
+interface HomePageProps {
+	ogImage: string;
+}
+
+const Home: NextPage<HomePageProps> = ({ ogImage }: HomePageProps) => {
 	return (
 		<>
+			<HeadMetaTags
+				title="Alexander Liebald | Personal Website"
+				description={DESCRIPTION}
+				ogImage={ogImage}
+				pathname=""
+			/>
 			<Center className={styles.heroHeader}>
 				<Container className={styles.container}>
 					<Title order={1} align="center">
@@ -35,3 +49,9 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+	const ogImage = await generateOGImage("home", "Alexander Liebald", DESCRIPTION);
+
+	return { props: { ogImage: ogImage } };
+}

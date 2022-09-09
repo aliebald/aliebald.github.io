@@ -1,22 +1,29 @@
-import { Container, Title, Text } from "@mantine/core";
+import { Container } from "@mantine/core";
 import type { NextPage } from "next";
-import Head from "next/head";
+import HeadMetaTags from "../../components/Atoms/HeadMetaTags/HeadMetaTags";
 import ExtendedPageHeader from "../../components/Molecules/ExtendedPageHeader/ExtendedPageHeader";
 import ProjectListElement from "../../components/Organisms/ProjectListElement/ProjectListElement";
 import { projects } from "../../data/projects";
+import generateOGImage from "../../util/og-image-generator";
 
-const Projects: NextPage = () => {
+interface ProjectsPageProps {
+	ogImage: string;
+}
+
+const DESCRIPTION =
+	"Mayor past and current projects by Alexander Liebald. All projects are available on GitHub, the links can be found on the project detail page.";
+
+const Projects: NextPage<ProjectsPageProps> = ({ ogImage }: ProjectsPageProps) => {
 	return (
 		<>
-			<ExtendedPageHeader
-				title="Projects"
-				subtitle="This page lists my major past and current projects. All projects are available on GitHub, the link as well as other links can be found on the project detail page."
+			<HeadMetaTags
+				title="Projects | Alexander Liebald"
+				description="Projects by Alexander Liebald"
+				ogImage={ogImage}
+				pathname="projects"
 			/>
+			<ExtendedPageHeader title="Projects" subtitle={DESCRIPTION} />
 			<Container pb="lg">
-				<Head>
-					<title>Projects | Alexander Liebald</title>
-					<meta name="description" content="Projects by Alexander Liebald" />
-				</Head>
 				{projects.map((p) => (
 					<ProjectListElement {...p} key={p.title} />
 				))}
@@ -26,3 +33,9 @@ const Projects: NextPage = () => {
 };
 
 export default Projects;
+
+export async function getStaticProps() {
+	const ogImage = await generateOGImage("projects", "Projects by Alexander Liebald", DESCRIPTION);
+
+	return { props: { ogImage: ogImage } };
+}
