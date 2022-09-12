@@ -1,21 +1,15 @@
 import styles from "./ProjectsTeaser.module.css";
 import ProjectCard from "../../Molecules/ProjectCard/ProjectCard";
-import { Container, Title, SimpleGrid, Button } from "@mantine/core";
-
-// Project Data
-import website from "../../../data/projects/Website";
-import commonSteamGames from "../../../data/projects/CommonSteamGames";
-import newtonRunner from "../../../data/projects/NewtonRunner";
-import experimentalHub from "../../../data/projects/ExperimentalHub";
+import { Container, Title, SimpleGrid } from "@mantine/core";
 import LinkButton from "../../Atoms/LinkButton/LinkButton";
+import type { Project } from "../../../util/projects";
 
 interface ProjectsTeaserProps {
+	projects: Project[];
 	className?: string;
 }
 
-export default function ProjectsTeaser({ className }: ProjectsTeaserProps) {
-	const projects = [website, commonSteamGames, newtonRunner, experimentalHub];
-
+export default function ProjectsTeaser({ projects, className }: ProjectsTeaserProps) {
 	return (
 		<Container className={`${styles.container} ${className ?? ""}`}>
 			<Title order={1} align="center" pt="lg" pb="md">
@@ -23,7 +17,7 @@ export default function ProjectsTeaser({ className }: ProjectsTeaserProps) {
 			</Title>
 			<SimpleGrid cols={2} spacing="md" py="md" breakpoints={[{ maxWidth: 700, cols: 1, spacing: "sm" }]}>
 				{projects.map((p) => (
-					<ProjectCard project={p} key={p.href} />
+					<ProjectCard project={p} key={p.id} />
 				))}
 			</SimpleGrid>
 			<LinkButton href="/projects">See All Projects</LinkButton>

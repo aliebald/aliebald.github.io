@@ -1,12 +1,12 @@
 import { Paper, Title, Text, MantineTheme, Badge, MantineColor } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
-import { Project } from "../../../data/projects";
+import type { Project } from "../../../util/projects";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
 
-export default function ProjectListElement({ title, badges, abstract, href }: Project) {
+export default function ProjectListElement({ title, badges, abstract, id }: Project) {
 	return (
-		<Link href={`projects/${href}`} passHref>
+		<Link href={`projects/${id}`} passHref>
 			<Paper
 				component="a"
 				shadow="sm"

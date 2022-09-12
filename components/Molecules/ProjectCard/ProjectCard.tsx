@@ -1,6 +1,6 @@
 import { Box, MantineTheme, Title, Text, createStyles } from "@mantine/core";
 import Link from "next/link";
-import { Project } from "../../../data/projects";
+import type { Project } from "../../../util/projects";
 import BadgeCollection from "../BadgeCollection/BadgeCollection";
 
 interface ProjectCardProps {
@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 	const { classes } = useStyles();
 
 	return (
-		<Link href={`projects/${project.href}`} passHref>
+		<Link href={`projects/${project.id}`} passHref>
 			<Box className={classes.box} p="sm" component="a">
 				<Title order={2}>{project.title}</Title>
 				<BadgeCollection badges={project.badges} />

@@ -1,0 +1,41 @@
+export const project = {
+	title: "Personal Website",
+	abstract: "My most recent project, this Website! A place were I present my past and current projects.",
+	badges: mapBadges(["TypeScript", "React", "NextJs", "Mantine"]),
+	id: "website",
+	order: 10,
+	links: [
+		{
+			href: "https://github.com/aliebald/aliebald.github.io",
+			type: "github",
+			label: "GitHub",
+		},
+		{
+			href: "https://liebald.dev",
+			type: "website",
+			label: "Website",
+		},
+	],
+};
+
+import { mapBadges } from "../../util/badges";
+import generateOGImage from "../../util/og-image-generator";
+import ProjectDetail from "../../components/templates/ProjectDetail/ProjectDetail";
+import UnderConstruction from "../../components/Molecules/UnderConstruction/UnderConstruction";
+
+export async function getStaticProps() {
+	const ogImage = await generateOGImage(project.id, project.title, project.abstract);
+	return { props: { ogImage: ogImage } };
+}
+
+export default ({ ogImage, children }) => (
+	<ProjectDetail project={project} ogImage={ogImage}>
+		{children}
+	</ProjectDetail>
+);
+
+<UnderConstruction />
+
+# This Website!
+
+This page will contain some information about my personal website in the future. For now, feel free to explore it yourself.

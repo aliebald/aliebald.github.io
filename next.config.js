@@ -2,6 +2,15 @@
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
+	// Support MDX files as pages:
+	pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
 };
 
-module.exports = nextConfig;
+const withMDX = require("@next/mdx")({
+	extension: /\.mdx?$/,
+	options: {
+		jsxImportSource: "@emotion/react",
+	},
+});
+
+module.exports = withMDX(nextConfig);

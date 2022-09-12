@@ -1,0 +1,91 @@
+export const project = {
+	title: "Common Steam Games",
+	badges: mapBadges(["TypeScript", "React", "SocketIO", "Express"]),
+	id: "common-steam-games",
+	order: 30,
+	abstract:
+		"A web application that enables groups of users to discover common games regarding their steam accounts and vote on games to find common preferences.",
+	links: [
+		{
+			href: "https://github.com/aliebald/common-steam-games",
+			type: "github",
+			label: "GitHub - Frontend",
+		},
+		{
+			href: "https://common-steam-games.liebald.dev",
+			type: "website",
+			label: "Website",
+		},
+	],
+};
+
+import { mapBadges } from "../../util/badges";
+import generateOGImage from "../../util/og-image-generator";
+import ProjectDetail from "../../components/templates/ProjectDetail/ProjectDetail";
+import UnderConstruction from "../../components/Molecules/UnderConstruction/UnderConstruction";
+import Gallery from "../../components/Molecules/Gallery/Gallery";
+import { Text, List } from "@mantine/core";
+
+import customGameImg from "../../public/images/projects/csg/csg-custom-game.png";
+import homeImg from "../../public/images/projects/csg/csg-home.png";
+import dndGif from "../../public/images/projects/csg/csg-matching-dnd.gif";
+import matchingImg from "../../public/images/projects/csg/csg-matching.png";
+
+export async function getStaticProps() {
+	const ogImage = await generateOGImage(project.id, project.title, project.abstract);
+	return { props: { ogImage: ogImage } };
+}
+
+export default ({ ogImage, children }) => (
+	<ProjectDetail project={project} ogImage={ogImage}>
+		{children}
+	</ProjectDetail>
+);
+
+<UnderConstruction />
+
+# Discovering and Voting on Games
+
+Common Steam Games is a web application that enables groups of users to discover common games regarding their steam
+accounts and vote on games to find common preferences. Users can create sessions and invite others to join their session.
+
+# Use Case
+
+Ever played with a group of friends and could not decide on what to play? Then Common Steam Games is for you!
+
+Create a session, invite your friends and instantly see your common games. Sort your preferences using
+easy to use drag n drop and see the group preferences adopt. Find old classics or games you did not know
+all of you had in common.
+
+# Development
+
+The frontend of Common Steam Games was build using TypeScript with React. To allow multiple users joining a single
+session, a simple Express server with Socket.IO was set up. The server communicates with the
+[Steam API](https://steamcommunity.com/dev)
+
+The styling was donne from scratch using plain css, without any kind of components or styling library.
+
+# Features
+
+-   Live sessions with your peers
+-   Preference matching
+-   Games search &amp; drag and drop
+-   Steam games &amp; friendslist integration
+-   Custom games for your favorite common, non-steam games
+-   <em>...</em>
+
+# Gallery
+
+<Gallery
+	items={[
+		{ src: dndGif, alt: "Drag and Drop Demo" },
+		{ src: customGameImg, alt: "Custom Game Input" },
+		{ src: homeImg, alt: "Common Steam Games Landing Page" },
+		{ src: matchingImg, alt: "Matching Overview" },
+	]}
+/>
+
+<Text size="xs" color="dimmed">
+	I am not associated with the steam accounts shown in the gallery. They were chosen randomly from publicly visible
+	steam accounts and only serve to show the functionality of Common Steam Games.
+</Text>

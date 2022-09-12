@@ -1,5 +1,5 @@
 import { Tooltip, Button } from "@mantine/core";
-import { Link } from "../../../data/projects";
+import type { Link } from "../../../util/projects";
 import { IconBrandGithub, IconWorld, IconNotebook } from "@tabler/icons";
 import { NextLink } from "@mantine/next";
 

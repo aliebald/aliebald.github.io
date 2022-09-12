@@ -1,5 +1,15 @@
-import { Title, Text, Group, MantineProvider, useMantineColorScheme, MantineThemeOverride, Space } from "@mantine/core";
-import { Project } from "../../../data/projects";
+import {
+	Title,
+	Text,
+	Group,
+	MantineProvider,
+	useMantineColorScheme,
+	MantineThemeOverride,
+	Space,
+	Container,
+	List,
+} from "@mantine/core";
+import type { Project } from "../../../util/projects";
 import BadgeCollection from "../../Molecules/BadgeCollection/BadgeCollection";
 import ProjectLinkBtn from "../../Molecules/ProjectLinkBtn/ProjectLinkBtn";
 import { emotionCache } from "../../../emotion-cache";
@@ -7,13 +17,30 @@ import PageHeader from "../../Atoms/PageHeader/PageHeader";
 import PageProgress from "../../Atoms/PageProgress/PageProgress";
 import LinkButton from "../../Atoms/LinkButton/LinkButton";
 import HeadMetaTags from "../../Atoms/HeadMetaTags/HeadMetaTags";
+import { MDXProvider } from "@mdx-js/react";
+import type { MDXComponents } from "mdx/types";
+import Link from "next/link";
 
 interface ProjectDetailProps {
 	project: Project;
 	ogImage: string;
+	children: JSX.Element;
 }
 
-export default function ProjectDetail({ project, ogImage }: ProjectDetailProps) {
+const mdxComponents: MDXComponents = {
+	h1: (args: any) => <Title order={2} {...args} />,
+	h2: (args: any) => <Title order={3} {...args} />,
+	p: (args: any) => <Text {...args} />,
+	ul: (args: any) => <List withPadding {...args} />,
+	li: (args: any) => <List.Item {...args} />,
+	a: ({ href, ...args }: any) => (
+		<Link href={href} passHref>
+			<Text color="blue" component="a" target="_blank" rel="noopener noreferrer" {...args} />
+		</Link>
+	),
+};
+
+export default function ProjectDetail({ project, ogImage, children }: ProjectDetailProps) {
 	const { colorScheme } = useMantineColorScheme();
 
 	const projectDetailTheme: MantineThemeOverride = {
@@ -21,8 +48,6 @@ export default function ProjectDetail({ project, ogImage }: ProjectDetailProps) 
 		components: {
 			Title: {
 				defaultProps: {
-					order: 2,
-					// align: "center",
 					pt: "lg",
 					pb: "xs",
 				},
@@ -49,7 +74,7 @@ export default function ProjectDetail({ project, ogImage }: ProjectDetailProps) 
 				title={`${project.title} | Alexander Liebald`}
 				description={project.abstract}
 				ogImage={ogImage}
-				pathname={`projects/${project.href}`}
+				pathname={`projects/${project.id}`}
 			/>
 			<PageProgress />
 			<PageHeader>
@@ -61,7 +86,9 @@ export default function ProjectDetail({ project, ogImage }: ProjectDetailProps) 
 				</Group>
 			</PageHeader>
 			<MantineProvider withGlobalStyles withNormalizeCSS theme={projectDetailTheme} emotionCache={emotionCache}>
-				<project.description />
+				<MDXProvider components={mdxComponents}>
+					<Container>{children}</Container>
+				</MDXProvider>
 			</MantineProvider>
 			<Space h="sm" />
 			<PageHeader>

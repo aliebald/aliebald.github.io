@@ -1,8 +1,8 @@
 import { Badge, Group, GroupPosition, MantineNumberSize } from "@mantine/core";
-import { Badge as BadgeData } from "../../../data/badges";
+import type { Badge as BadgeType } from "../../../util/badges";
 
 interface BadgeCollectionProps {
-	badges: BadgeData[];
+	badges: BadgeType[];
 	position?: GroupPosition;
 	py?: MantineNumberSize | (string & {});
 }

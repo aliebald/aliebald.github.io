@@ -6,14 +6,16 @@ import LinkButton from "../components/Atoms/LinkButton/LinkButton";
 import WaveSpacer from "../components/Atoms/WaveSpacer/WaveSpacer";
 import HeadMetaTags from "../components/Atoms/HeadMetaTags/HeadMetaTags";
 import generateOGImage from "../util/og-image-generator";
+import { getProjectsFromIDs, Project } from "../util/projects";
 
 const DESCRIPTION = "Personal website of Alexander Liebald. Past projects, contact and more.";
 
 interface HomePageProps {
+	teaserProjects: Project[];
 	ogImage: string;
 }
 
-const Home: NextPage<HomePageProps> = ({ ogImage }: HomePageProps) => {
+const Home: NextPage<HomePageProps> = ({ teaserProjects, ogImage }: HomePageProps) => {
 	return (
 		<>
 			<HeadMetaTags
@@ -43,7 +45,7 @@ const Home: NextPage<HomePageProps> = ({ ogImage }: HomePageProps) => {
 				</Container>
 			</Center>
 			<WaveSpacer />
-			<ProjectsTeaser className={styles.teaser} />
+			<ProjectsTeaser className={styles.teaser} projects={teaserProjects} />
 		</>
 	);
 };
@@ -52,6 +54,10 @@ export default Home;
 
 export async function getStaticProps() {
 	const ogImage = await generateOGImage("home", "Alexander Liebald", DESCRIPTION);
+	const teaserProjects = await getProjectsFromIDs(
+		["website", "common-steam-games", "newton-runner", "experimental-hub"],
+		false
+	);
 
-	return { props: { ogImage: ogImage } };
+	return { props: { teaserProjects, ogImage: ogImage } };
 }

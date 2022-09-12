@@ -1,0 +1,60 @@
+export const project = {
+	title: "P2P Security Gossip",
+	badges: mapBadges(["Python", "P2P"]),
+	id: "p2p-security-gossip",
+	order: 50,
+	abstract:
+		"Gossip implementation developed as part of the Peer-to-Peer-Systems and Security course at Technical University of Munich. Provides connectivity in form of a low level, distributed peer-to-peer network with a flat hierarchy.",
+	links: [
+		{
+			href: "https://github.com/aliebald/p2psec-gossip",
+			type: "github",
+			label: "GitHub",
+		},
+	],
+};
+
+import { mapBadges } from "../../util/badges";
+import generateOGImage from "../../util/og-image-generator";
+import ProjectDetail from "../../components/templates/ProjectDetail/ProjectDetail";
+import Image from "../../components/Atoms/Image/Image";
+
+import controlFlowSVG from "../../public/images/projects/p2p-sec-gossip/control-flow.svg";
+
+export async function getStaticProps() {
+	const ogImage = await generateOGImage(project.id, project.title, project.abstract);
+	return { props: { ogImage: ogImage } };
+}
+
+export default ({ ogImage, children }) => (
+	<ProjectDetail project={project} ogImage={ogImage}>
+		{children}
+	</ProjectDetail>
+);
+
+# Background
+
+In the winter semester of 2021/22 I participated in the Peer-to-Peer-Systems and Security course at Technical
+University of Munich. As part of this course, teams of two implemented modules for a anonymous and unobservable VoIP
+application using a self designed P2P architecture. A selection of possible modules was provided and together with
+my team partner, we decided to implement Gossip.
+
+# Gossip
+
+Gossip was the module responsible for spreading information in the network. Other modules based their functionality
+on Gossip (or a provided mockup). For example, if a user goes online, Gossip is responsible for spreading the
+information that this user is now online.
+
+# Design &amp; Development
+
+All design decisions and the development process were documented in a final document:
+_P2P Gossip Protocol - An Implementation discussing Architectural and Security Standpoints_.
+This document ([link](https://github.com/aliebald/p2psec-gossip/blob/master/docs/documentation.pdf))
+as well as the code can be found [on GitHub](https://github.com/aliebald/aliebald.github.io/issues).
+
+# Control Flow
+
+As a small sneak-peek at the above-mentioned document, the following flowchart shows the program flow. It starts
+when the module is initiated and runs until a keyboard interrupt is detected.
+
+<Image src={controlFlowSVG} alt="Control Flow Graph" />
