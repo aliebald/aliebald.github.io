@@ -3,7 +3,7 @@ import { Container } from "@mantine/core";
 import generateOGImage from "../../util/og-image-generator";
 import HeadMetaTags from "../../components/Atoms/HeadMetaTags/HeadMetaTags";
 import ExtendedPageHeader from "../../components/Molecules/ExtendedPageHeader/ExtendedPageHeader";
-import ProjectListElement from "../../components/Organisms/ProjectListElement/ProjectListElement";
+import ProjectCard from "../../components/Molecules/ProjectCard/ProjectCard";
 import { getProjects, Project } from "../../util/projects";
 
 interface ProjectsPageProps {
@@ -26,7 +26,7 @@ const Projects: NextPage<ProjectsPageProps> = ({ projects, ogImage }: ProjectsPa
 			<ExtendedPageHeader title="Projects" subtitle={DESCRIPTION} />
 			<Container pb="lg">
 				{projects.map((p) => (
-					<ProjectListElement {...p} key={p.title} />
+					<ProjectCard project={p} key={p.id} my="md" />
 				))}
 			</Container>
 		</div>
