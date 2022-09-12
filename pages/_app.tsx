@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import BackToTopBtn from "../components/Molecules/BackToTopBtn/BackToTopBtn";
 import Header from "../components/Organisms/Header/Header";
 import Footer from "../components/Organisms/Footer/Footer";
 import { emotionCache } from "../emotion-cache";
@@ -56,6 +57,7 @@ function App({ Component, pageProps }: AppProps) {
 					<Header links={links} />
 					<Component {...pageProps} />
 					<Footer />
+					<BackToTopBtn />
 				</MantineProvider>
 			</ColorSchemeProvider>
 		</>
