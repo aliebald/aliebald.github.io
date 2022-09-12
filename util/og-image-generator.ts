@@ -7,6 +7,7 @@ import { createCanvas, loadImage, CanvasRenderingContext2D } from "canvas";
  * @param filename url-save filename for final png.
  * @param title Title for image
  * @param description Description for image
+ * @param forceGeneration If false, the image is only generated if it does not yet exist.
  * @param width optional, image width. Default: 1280.
  * @param height optional, image height. Default: 640.
  * @returns path to generated image within public folder.
@@ -15,10 +16,18 @@ export default async function generateOGImage(
 	filename: string,
 	title: string,
 	description: string,
+	forceGeneration: boolean = process.env.NODE_ENV === "production",
 	width = 1280,
 	height = 640
 ) {
 	const finalPath = `images/open-graph/generated/${filename}.png`;
+	const relativePath = `./public/${finalPath}`;
+
+	if (!forceGeneration && fs.existsSync(relativePath)) {
+		console.log(`Skip generating Open Graph image for ${filename} - ${finalPath}. File already exists`);
+		return finalPath;
+	}
+
 	console.log(`Generating Open Graph Image for ${filename} - ${finalPath}`);
 
 	const bgImage = await loadImage("util/og-background.png");
@@ -58,7 +67,7 @@ export default async function generateOGImage(
 
 	// Save image
 	const buffer = canvas.toBuffer("image/png");
-	fs.writeFileSync(`./public/${finalPath}`, buffer);
+	fs.writeFileSync(relativePath, buffer);
 	return finalPath;
 }
 
