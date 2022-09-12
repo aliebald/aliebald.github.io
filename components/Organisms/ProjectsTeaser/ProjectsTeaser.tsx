@@ -12,7 +12,7 @@ interface ProjectsTeaserProps {
 export default function ProjectsTeaser({ projects, className }: ProjectsTeaserProps) {
 	return (
 		<Container className={`${styles.container} ${className ?? ""}`}>
-			<Title order={1} align="center" pt="lg" pb="md">
+			<Title order={1} align="center" pb="md">
 				Interesting Projects
 			</Title>
 			<SimpleGrid cols={2} spacing="md" py="md" breakpoints={[{ maxWidth: 700, cols: 1, spacing: "sm" }]}>

@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import ProjectsTeaser from "../components/Organisms/ProjectsTeaser/ProjectsTeaser";
 import styles from "../styles/Home.module.css";
 import LinkButton from "../components/Atoms/LinkButton/LinkButton";
-import WaveSpacer from "../components/Atoms/WaveSpacer/WaveSpacer";
+import WaveSection from "../components/Molecules/WaveSection/WaveSection";
 import HeadMetaTags from "../components/Atoms/HeadMetaTags/HeadMetaTags";
 import generateOGImage from "../util/og-image-generator";
 import { getProjectsFromIDs, Project } from "../util/projects";
@@ -44,8 +44,10 @@ const Home: NextPage<HomePageProps> = ({ teaserProjects, ogImage }: HomePageProp
 					</Group>
 				</Container>
 			</Center>
-			<WaveSpacer />
-			<ProjectsTeaser className={styles.teaser} projects={teaserProjects} />
+			{/* <WaveSpacer /> */}
+			<WaveSection>
+				<ProjectsTeaser projects={teaserProjects} />
+			</WaveSection>
 		</>
 	);
 };
