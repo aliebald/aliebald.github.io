@@ -69,6 +69,10 @@ export const badges: Badges = {
 		title: "Chart.Js",
 		gradient: { from: "pink.7", to: "yellow.7", deg: gradientDegree },
 	},
+	Emotion: {
+		title: "Emotion",
+		gradient: { from: "pink.6", to: "grape.6", deg: gradientDegree },
+	},
 } as const;
 
 // TODO
