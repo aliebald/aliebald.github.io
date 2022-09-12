@@ -23,7 +23,7 @@ export const badges: Badges = {
 	},
 	NextJs: {
 		title: "Next.js",
-		color: "gray",
+		color: "gray.9",
 	},
 	Mantine: {
 		title: "Mantine",
@@ -35,7 +35,7 @@ export const badges: Badges = {
 	},
 	Phaser: {
 		title: "Phaser",
-		gradient: { from: "grape", to: "pink", deg: gradientDegree },
+		gradient: { from: "grape.5", to: "pink", deg: gradientDegree },
 	},
 	Python: {
 		title: "Python",
@@ -47,7 +47,7 @@ export const badges: Badges = {
 	},
 	SocketIO: {
 		title: "Socket.IO",
-		color: "dark",
+		color: "dark.9",
 	},
 	Express: {
 		title: "Express",
@@ -55,7 +55,7 @@ export const badges: Badges = {
 	},
 	P2P: {
 		title: "P2P",
-		color: "green",
+		gradient: { from: "violet.7", to: "grape.7", deg: gradientDegree },
 	},
 	Java: {
 		title: "Java",
@@ -63,6 +63,7 @@ export const badges: Badges = {
 	},
 	MiLight: {
 		title: "MiLight",
+		gradient: { from: "cyan.6", to: "teal.8", deg: gradientDegree },
 	},
 	ChartJs: {
 		title: "Chart.Js",
