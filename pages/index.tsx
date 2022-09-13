@@ -8,7 +8,8 @@ import HeadMetaTags from "../components/Atoms/HeadMetaTags/HeadMetaTags";
 import generateOGImage from "../util/og-image-generator";
 import { getProjectsFromIDs, Project } from "../util/projects";
 
-const DESCRIPTION = "Personal website of Alexander Liebald. Past projects, contact and more.";
+const DESCRIPTION =
+	"Portfolio & Personal Website of Alexander Liebald, Passionate Full Stack Software Developer. Past Projects, Contact and more.";
 
 interface HomePageProps {
 	teaserProjects: Project[];
@@ -27,12 +28,12 @@ const Home: NextPage<HomePageProps> = ({ teaserProjects, ogImage }: HomePageProp
 			<Center className={styles.heroHeader}>
 				<Container className={styles.container}>
 					<Title order={1} align="center">
-						I Do Stuff!
+						Alexander Liebald
 					</Title>
-					<Text color="dimmed" size="lg" align="center" py="md">
-						This might still be a placeholder, but feel free to take a look around! <br />
-						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-						ut labore et dolore magna aliquyam erat, sed diam voluptua.
+					<Text size="lg" align="center" py="md">
+						Passionate Full Stack Software Developer. Experienced with building Web Applications using
+						TypeScript, React, Node.js and lots of other amazing libraries, frameworks &amp; languages.
+						Always interested in learning new things and building outstanding applications.
 					</Text>
 					<Group position="center">
 						<LinkButton href="/projects" size="lg">
