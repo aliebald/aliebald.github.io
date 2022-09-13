@@ -90,8 +90,8 @@ export default function Header({ links }: { links: { label: string; href: string
 						icon={<IconBrandGithub size={iconSize} stroke={iconStroke} />}
 					/>
 					<QuickIcon
-						href="/contact"
-						tooltip="LinkedIn - WIP"
+						href="https://www.linkedin.com/in/alexander-liebald/"
+						tooltip="LinkedIn Profile"
 						icon={<IconBrandLinkedin size={iconSize} stroke={iconStroke} />}
 					/>
 					<QuickIcon
