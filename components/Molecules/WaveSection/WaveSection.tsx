@@ -38,11 +38,11 @@ export default function WaveSection({ children }: WaveSpacerProps) {
 
 	return (
 		<>
-			<AnimateWhenInViewport type="growYUp" noHide>
+			<AnimateWhenInViewport type="growYUp" noHide duration="2s">
 				<div className={`${classes.waves} ${classes.background}`}>{imgTop}</div>
 			</AnimateWhenInViewport>
 			<div className={classes.background}>{children}</div>
-			<AnimateWhenInViewport type="growYDown" noHide>
+			<AnimateWhenInViewport type="growYDown" noHide duration="2s">
 				<div className={`${classes.waves} ${classes.background}`}>{imgBottom}</div>
 			</AnimateWhenInViewport>
 		</>

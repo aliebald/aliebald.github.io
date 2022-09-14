@@ -13,7 +13,7 @@ interface ProjectsTeaserProps {
 export default function ProjectsTeaser({ projects, className }: ProjectsTeaserProps) {
 	return (
 		<Container className={`${styles.container} ${className ?? ""}`}>
-			<TitleAnimated order={1} align="center" pb="md">
+			<TitleAnimated order={1} align="center" pb="md" animation={{ type: "slideInR" }}>
 				Interesting Projects
 			</TitleAnimated>
 			<SimpleGrid

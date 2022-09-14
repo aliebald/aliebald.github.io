@@ -4,7 +4,8 @@ export interface Animation {
 	initDelay?: number;
 	threshold?: number;
 	noHide?: boolean;
-	type?: "slideUp" | "slideDown" | "growYUp" | "growYDown";
+	type?: "slideUp" | "slideInR" | "growYUp" | "growYDown";
+	duration?: string;
 }
 
 interface AnimateWhenInViewportProps<T> extends Animation {
@@ -19,6 +20,7 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 	threshold = 0,
 	noHide,
 	type,
+	duration,
 }: AnimateWhenInViewportProps<T>) {
 	const ref = useRef<T | null>(null);
 	const [initTime, setInitTime] = useState(performance.now());
@@ -41,6 +43,9 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 		 * Disconnects observer afterwards.
 		 */
 		const applyAnimation = (elem: HTMLElement) => {
+			if (duration) {
+				elem.style.animationDuration = duration;
+			}
 			elem.classList.add("animation");
 			elem.classList.remove("hidden");
 			observer.disconnect();

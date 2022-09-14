@@ -7,6 +7,7 @@ import WaveSection from "../components/Molecules/WaveSection/WaveSection";
 import HeadMetaTags from "../components/Atoms/HeadMetaTags/HeadMetaTags";
 import generateOGImage from "../util/og-image-generator";
 import { getProjectsFromIDs, Project } from "../util/projects";
+import AnimateWhenInViewport from "../components/Atoms/AnimateWhenInViewport/AnimateWhenInViewport";
 
 const DESCRIPTION =
 	"Portfolio & Personal Website of Alexander Liebald, Passionate Full Stack Software Developer. Past Projects, Contact and more.";
@@ -27,26 +28,28 @@ const Home: NextPage<HomePageProps> = ({ teaserProjects, ogImage }: HomePageProp
 			/>
 			<Center className={styles.heroHeader}>
 				<Container className={styles.container}>
-					<div className="animation-wrapper">
-						<Title order={1} align="center" className="animation">
+					<AnimateWhenInViewport type="slideInR">
+						<Title order={1} align="center">
 							Alexander Liebald
 						</Title>
-					</div>
-					<div className="animation-wrapper">
-						<Text size="lg" align="center" py="md" className="animation d-0-2">
+					</AnimateWhenInViewport>
+					<AnimateWhenInViewport type="slideInR" initDelay={500}>
+						<Text size="lg" align="center" py="md">
 							Passionate Full Stack Software Developer. Experienced with building Web Applications using
 							TypeScript, React, Node.js and lots of other amazing libraries, frameworks &amp; languages.
 							Always interested in learning new things and building outstanding applications.
 						</Text>
-					</div>
-					<Group position="center" className="animation-wrapper">
-						<LinkButton className="animation d-0-4" href="/projects" size="lg">
-							Discover Projects
-						</LinkButton>
-						<LinkButton className="animation d-0-4" href="/contact" size="lg" variant="outline">
-							Contact
-						</LinkButton>
-					</Group>
+					</AnimateWhenInViewport>
+					<AnimateWhenInViewport initDelay={1000}>
+						<Group position="center">
+							<LinkButton href="/projects" size="lg">
+								Discover Projects
+							</LinkButton>
+							<LinkButton href="/contact" size="lg" variant="outline">
+								Contact
+							</LinkButton>
+						</Group>
+					</AnimateWhenInViewport>
 				</Container>
 			</Center>
 			<WaveSection>
