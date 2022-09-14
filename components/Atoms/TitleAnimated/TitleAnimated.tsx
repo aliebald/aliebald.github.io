@@ -10,7 +10,7 @@ interface TitleAnimatedProps extends TitleProps {
 export default function TitleAnimated({ animation, className, ...props }: TitleAnimatedProps) {
 	return (
 		<AnimateWhenInViewport {...animation}>
-			{(ref: Ref<HTMLDivElement>) => <Title ref={ref} {...props}></Title>}
+			<Title {...props} />
 		</AnimateWhenInViewport>
 	);
 }

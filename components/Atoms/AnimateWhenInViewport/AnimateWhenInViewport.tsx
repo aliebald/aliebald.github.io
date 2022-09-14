@@ -1,4 +1,4 @@
-import type { Ref, ReactElement } from "react";
+import { Ref, ReactElement, cloneElement, DetailedReactHTMLElement, MutableRefObject } from "react";
 import { useRef, useEffect, useState } from "react";
 
 export interface Animation {
@@ -7,7 +7,7 @@ export interface Animation {
 }
 
 interface AnimateWhenInViewportProps<T> extends Animation {
-	children: (ref: Ref<T>) => ReactElement<any, any>;
+	children: JSX.Element;
 }
 
 export default function AnimateWhenInViewport<T extends HTMLElement>({
@@ -64,7 +64,16 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 		return () => {
 			observer.disconnect();
 		};
-	}, [ref]);
+	}, [initDelay, initTime, ref, threshold]);
 
-	return <div className="animation-wrapper">{children(ref)}</div>;
+	/**
+	 * Set `ref.current` to `current`, if not null.
+	 */
+	const updateRef = (current: T | null) => {
+		if (current) {
+			ref.current = current;
+		}
+	};
+
+	return <div className="animation-wrapper">{cloneElement(children, { ref: updateRef })}</div>;
 }

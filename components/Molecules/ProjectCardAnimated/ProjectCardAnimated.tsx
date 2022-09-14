@@ -11,7 +11,7 @@ interface ProjectCardAnimatedProps extends ProjectCardProps {
 export default function ProjectCardAnimated({ animation, ...props }: ProjectCardAnimatedProps) {
 	return (
 		<AnimateWhenInViewport {...animation}>
-			{(ref: Ref<HTMLAnchorElement>) => <ProjectCard {...props} ref={ref} />}
+			<ProjectCard {...props} />
 		</AnimateWhenInViewport>
 	);
 }

@@ -11,7 +11,7 @@ interface LinkButtonAnimatedProps extends LinkButtonProps {
 export default function LinkButtonAnimated({ animation, ...props }: LinkButtonAnimatedProps) {
 	return (
 		<AnimateWhenInViewport {...animation}>
-			{(ref: Ref<HTMLAnchorElement>) => <LinkButton {...props} ref={ref} />}
+			<LinkButton {...props} />
 		</AnimateWhenInViewport>
 	);
 }
