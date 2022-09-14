@@ -31,3 +31,108 @@ a {
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
+
+.hidden {
+  visibility: hidden;
+  /* opacity: 0.1; */
+}
+
+/* =============================== 
+ *        Global Animations      
+ * =============================== */
+
+.animation-wrapper {
+  overflow: hidden;
+}
+
+.animation {
+  transform-origin: bottom;
+  animation: slideUp .7s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+}
+
+.animation-down {
+  animation: slideDown .7s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+}
+
+.animation.inf {
+  animation-iteration-count: infinite;
+}
+
+.animation.d-0-1 {
+  animation-delay: .1s;
+}
+
+.animation.d-0-2 {
+  animation-delay: .2s;
+}
+
+.animation.d-0-3 {
+  animation-delay: .3s;
+}
+
+.animation.d-0-4 {
+  animation-delay: .4s;
+}
+
+.animation.d-0-5 {
+  animation-delay: .5s;
+}
+
+.animation.d-0-6 {
+  animation-delay: .6s;
+}
+
+.animation.d-0-7 {
+  animation-delay: .7s;
+}
+
+.animation.d-0-8 {
+  animation-delay: .8s;
+}
+
+.animation.d-0-9 {
+  animation-delay: .8s;
+}
+
+.animation.d-1 {
+  animation-delay: .8s;
+}
+
+/* =============================== 
+ *  Global Animations - Keyframes
+ * =============================== */
+
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(150px) scale(.5);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .3;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(200px);
+    transform-origin: 50% 50%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .3;
+  }
+
+  100% {
+    transform: translateY(0);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}

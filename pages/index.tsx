@@ -27,25 +27,28 @@ const Home: NextPage<HomePageProps> = ({ teaserProjects, ogImage }: HomePageProp
 			/>
 			<Center className={styles.heroHeader}>
 				<Container className={styles.container}>
-					<Title order={1} align="center">
-						Alexander Liebald
-					</Title>
-					<Text size="lg" align="center" py="md">
-						Passionate Full Stack Software Developer. Experienced with building Web Applications using
-						TypeScript, React, Node.js and lots of other amazing libraries, frameworks &amp; languages.
-						Always interested in learning new things and building outstanding applications.
-					</Text>
-					<Group position="center">
-						<LinkButton href="/projects" size="lg">
+					<div className="animation-wrapper">
+						<Title order={1} align="center" className="animation">
+							Alexander Liebald
+						</Title>
+					</div>
+					<div className="animation-wrapper">
+						<Text size="lg" align="center" py="md" className="animation d-0-2">
+							Passionate Full Stack Software Developer. Experienced with building Web Applications using
+							TypeScript, React, Node.js and lots of other amazing libraries, frameworks &amp; languages.
+							Always interested in learning new things and building outstanding applications.
+						</Text>
+					</div>
+					<Group position="center" className="animation-wrapper">
+						<LinkButton className="animation d-0-4" href="/projects" size="lg">
 							Discover Projects
 						</LinkButton>
-						<LinkButton href="/contact" size="lg" variant="outline">
+						<LinkButton className="animation d-0-4" href="/contact" size="lg" variant="outline">
 							Contact
 						</LinkButton>
 					</Group>
 				</Container>
 			</Center>
-			{/* <WaveSpacer /> */}
 			<WaveSection>
 				<ProjectsTeaser projects={teaserProjects} />
 			</WaveSection>
