@@ -30,9 +30,9 @@ export default function WaveSection({ children }: WaveSpacerProps) {
 
 	const img =
 		colorScheme === "dark" ? (
-			<Image src={wavesDark} alt="Background" layout="fill" objectFit="cover" />
+			<Image priority src={wavesDark} alt="Background" layout="fill" objectFit="cover" />
 		) : (
-			<Image src={wavesLight} alt="Background" layout="fill" objectFit="cover" />
+			<Image priority src={wavesLight} alt="Background" layout="fill" objectFit="cover" />
 		);
 
 	return (
