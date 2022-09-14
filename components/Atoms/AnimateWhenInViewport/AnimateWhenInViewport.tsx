@@ -1,41 +1,61 @@
-import { Ref, ReactElement, cloneElement, DetailedReactHTMLElement, MutableRefObject } from "react";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, cloneElement } from "react";
 
 export interface Animation {
 	initDelay?: number;
 	threshold?: number;
+	noHide?: boolean;
+	type?: "slideUp" | "slideDown" | "growYUp" | "growYDown";
 }
 
 interface AnimateWhenInViewportProps<T> extends Animation {
 	children: JSX.Element;
+	wrapperClassName?: string;
 }
 
 export default function AnimateWhenInViewport<T extends HTMLElement>({
 	children,
+	wrapperClassName = "",
 	initDelay = 0,
 	threshold = 0,
+	noHide,
+	type,
 }: AnimateWhenInViewportProps<T>) {
 	const ref = useRef<T | null>(null);
 	const [initTime, setInitTime] = useState(performance.now());
 
+	// Wait for element to be in viewport, then start the animation.
 	useEffect(() => {
 		if (!ref.current) return;
 
-		const hideElement = (elem: HTMLElement | null) => {
-			if (elem && !elem.classList.contains("hidden")) {
+		/**
+		 * Add `hidden` css class to `elem` HTMLElement.
+		 */
+		const hideElement = (elem: HTMLElement) => {
+			if (!noHide && !elem.classList.contains("hidden")) {
 				elem.classList.add("hidden");
 			}
 		};
 
-		const applyAnimation = (elem: HTMLElement | null) => {
-			if (!elem) return;
-
+		/**
+		 * Removes `hidden` and adds `animation` class to `elem` HTMLElement.
+		 * Disconnects observer afterwards.
+		 */
+		const applyAnimation = (elem: HTMLElement) => {
 			elem.classList.add("animation");
 			elem.classList.remove("hidden");
 			observer.disconnect();
 		};
 
-		const options = {
+		/**
+		 * Applies a delayed animation. {@see applyAnimation}.
+		 */
+		const delayAnimation = (elem: HTMLElement, wait: number) => {
+			hideElement(elem);
+			elem.style.animationDelay = `${Math.round(wait)}ms`;
+			applyAnimation(elem);
+		};
+
+		const observerOptions = {
 			threshold,
 		};
 
@@ -45,26 +65,25 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 			if (entries[0].isIntersecting && entries[0].intersectionRatio >= threshold) {
 				const timeSinceInit = performance.now() - initTime;
 				const wait = initDelay - timeSinceInit;
-				console.log("wait", Math.round(wait));
 
 				if (!initDelay || wait <= 0) {
 					applyAnimation(ref.current);
 				} else {
-					hideElement(ref.current);
-					setTimeout(() => applyAnimation(ref.current), wait);
+					delayAnimation(ref.current, wait);
 				}
 				return;
 			}
 
+			// Hide element on page load.
 			hideElement(ref.current);
-		}, options);
+		}, observerOptions);
 
 		observer.observe(ref.current);
 
 		return () => {
 			observer.disconnect();
 		};
-	}, [initDelay, initTime, ref, threshold]);
+	}, [initDelay, initTime, noHide, ref, threshold]);
 
 	/**
 	 * Set `ref.current` to `current`, if not null.
@@ -75,5 +94,9 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 		}
 	};
 
-	return <div className="animation-wrapper">{cloneElement(children, { ref: updateRef })}</div>;
+	return (
+		<div className={`${wrapperClassName} animation-wrapper`}>
+			{cloneElement(children, { ref: updateRef, className: `${children.props.className} ${type ?? ""}` })}
+		</div>
+	);
 }

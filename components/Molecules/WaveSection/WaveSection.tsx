@@ -1,9 +1,10 @@
-import Image from "next/image";
-import { createStyles, Transition, useMantineColorScheme } from "@mantine/core";
+import Image, { ImageProps } from "next/image";
+import { createStyles, useMantineColorScheme } from "@mantine/core";
 
 // SVG's
 import wavesLight from "../../../public/images/waves-light.svg";
 import wavesDark from "../../../public/images/waves-dark.svg";
+import AnimateWhenInViewport from "../../Atoms/AnimateWhenInViewport/AnimateWhenInViewport";
 
 interface WaveSpacerProps {
 	children: JSX.Element | JSX.Element[];
@@ -19,7 +20,7 @@ const useStyles = createStyles((theme, _params) => ({
 	rotate: {
 		transform: "rotate(180deg)",
 	},
-	children: {
+	background: {
 		backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2],
 	},
 }));
@@ -28,18 +29,22 @@ export default function WaveSection({ children }: WaveSpacerProps) {
 	const { colorScheme } = useMantineColorScheme();
 	const { classes } = useStyles();
 
-	const img =
-		colorScheme === "dark" ? (
-			<Image priority src={wavesDark} alt="Background" layout="fill" objectFit="cover" />
-		) : (
-			<Image priority src={wavesLight} alt="Background" layout="fill" objectFit="cover" />
-		);
+	const imgSrc = colorScheme === "dark" ? wavesDark : wavesLight;
+
+	const imgTop = <Image priority src={imgSrc} alt="Background" layout="fill" objectFit="cover" />;
+	const imgBottom = (
+		<Image priority src={imgSrc} alt="Background" layout="fill" objectFit="cover" className={classes.rotate} />
+	);
 
 	return (
 		<>
-			<div className={classes.waves}>{img}</div>
-			<div className={classes.children}>{children}</div>
-			<div className={`${classes.waves} ${classes.rotate}`}>{img}</div>
+			<AnimateWhenInViewport type="growYUp" noHide>
+				<div className={`${classes.waves} ${classes.background}`}>{imgTop}</div>
+			</AnimateWhenInViewport>
+			<div className={classes.background}>{children}</div>
+			<AnimateWhenInViewport type="growYDown" noHide>
+				<div className={`${classes.waves} ${classes.background}`}>{imgBottom}</div>
+			</AnimateWhenInViewport>
 		</>
 	);
 }

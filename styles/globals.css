@@ -50,10 +50,6 @@ a {
   animation: slideUp .7s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
 }
 
-.animation-down {
-  animation: slideDown .7s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
-}
-
 .animation.inf {
   animation-iteration-count: infinite;
 }
@@ -98,14 +94,13 @@ a {
   animation-delay: .8s;
 }
 
-/* =============================== 
- *  Global Animations - Keyframes
- * =============================== */
-
+/* =============================================================== 
+ *  Global Animations - Keyframes & CSS Specific to each Keyframe
+ * =============================================================== */
 
 @keyframes slideUp {
   0% {
-    transform: translateY(150px) scale(.5);
+    transform: translateY(100px) scale(.5);
     opacity: 0;
   }
 
@@ -119,20 +114,34 @@ a {
   }
 }
 
-@keyframes slideDown {
-  0% {
-    transform: translateY(200px);
-    transform-origin: 50% 50%;
-    opacity: 0;
-  }
+.animation.growYUp {
+  animation-name: growYUp;
+  transform-origin: bottom;
+  animation-duration: 1s;
+}
 
-  10% {
-    opacity: .3;
+@keyframes growYUp {
+  0% {
+    transform: scaleY(.5);
   }
 
   100% {
-    transform: translateY(0);
-    transform-origin: 100% 0%;
-    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.animation.growYDown {
+  animation-name: growYDown;
+  transform-origin: top;
+  animation-duration: 1s;
+}
+
+@keyframes growYDown {
+  0% {
+    transform: scaleY(.5);
+  }
+
+  100% {
+    transform: scaleY(1);
   }
 }
