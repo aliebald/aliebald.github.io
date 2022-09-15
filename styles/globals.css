@@ -60,6 +60,12 @@ a {
   animation: slideUp 1s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
 }
 
+@media (prefers-reduced-motion) {
+  .animation {
+    animation-name: dissolve !important;
+  }
+}
+
 
 /* =============================================================== 
  *  Global Animations - Keyframes & CSS Specific to each Keyframe
