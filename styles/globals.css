@@ -41,7 +41,9 @@ a {
  * =============================== */
 
 :root {
-  --btn-transition: .35s ease
+  --header-height: 56px;
+  --waves-section-spacer-height: 300px;
+  --btn-transition: .35s ease;
 }
 
 

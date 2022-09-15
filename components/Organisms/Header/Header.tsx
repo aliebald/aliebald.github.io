@@ -78,7 +78,7 @@ export default function Header({ links }: { links: { label: string; href: string
 	const iconStroke = 1.5;
 
 	return (
-		<MantineHeader height={56} pb="md">
+		<MantineHeader height="var(--header-height)" pb="md">
 			<Container className={classes.inner}>
 				<SideNav>{linkElements}</SideNav>
 				<Group className={classes.links} spacing={5}>

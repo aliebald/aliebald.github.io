@@ -1,4 +1,4 @@
 .heroHeader {
-	min-height: 65vh;
+	min-height: calc(100vh - var(--header-height) - var(--waves-section-spacer-height) + min(5vh, 30px));
 	margin: auto;
 }
