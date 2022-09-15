@@ -15,6 +15,8 @@ const useStyles = createStyles((theme, _params) => ({
 		alignContent: "center",
 		alignItems: "center",
 		cursor: "pointer",
+		transitionProperty: "all !important",
+
 		"&:hover": {
 			color: theme.colors.dark[1],
 			borderColor: theme.colors.dark[1],

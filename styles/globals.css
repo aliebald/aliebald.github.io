@@ -34,8 +34,16 @@ a {
 
 .hidden {
   visibility: hidden;
-  /* opacity: 0.1; */
 }
+
+/* =============================== 
+ *          CSS Variables
+ * =============================== */
+
+:root {
+  --btn-transition: .35s ease
+}
+
 
 /* =============================== 
  *        Global Animations      

@@ -2,7 +2,15 @@ import "../styles/globals.css";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import {
+	ButtonStylesParams,
+	ColorScheme,
+	ColorSchemeProvider,
+	CSSObject,
+	MantineProvider,
+	MantineTheme,
+	MantineThemeOverride,
+} from "@mantine/core";
 import BackToTopBtn from "../components/Molecules/BackToTopBtn/BackToTopBtn";
 import Header from "../components/Organisms/Header/Header";
 import Footer from "../components/Organisms/Footer/Footer";
@@ -38,6 +46,18 @@ function App({ Component, pageProps }: AppProps) {
 		},
 	];
 
+	const globalTheme: MantineThemeOverride = {
+		colorScheme: colorScheme,
+		components: {
+			Button: {
+				styles: { root: { transition: "var(--btn-transition)" } },
+			},
+			ActionIcon: {
+				styles: { root: { transition: "var(--btn-transition)" } },
+			},
+		},
+	};
+
 	return (
 		<>
 			<Head>
@@ -53,7 +73,7 @@ function App({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-				<MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }} emotionCache={emotionCache}>
+				<MantineProvider withGlobalStyles withNormalizeCSS theme={globalTheme} emotionCache={emotionCache}>
 					<Header links={links} />
 					<Component {...pageProps} />
 					<Footer />

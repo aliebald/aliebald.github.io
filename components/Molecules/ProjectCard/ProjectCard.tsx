@@ -23,6 +23,8 @@ const useStyles = createStyles((theme) => ({
 			cursor: "pointer",
 		},
 		padding: theme.spacing.md,
+		transition: ".35s ease",
+
 		[theme.fn.smallerThan("sm")]: {
 			padding: theme.spacing.sm,
 		},
