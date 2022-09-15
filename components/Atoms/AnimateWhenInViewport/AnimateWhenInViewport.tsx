@@ -88,7 +88,7 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 		return () => {
 			observer.disconnect();
 		};
-	}, [initDelay, initTime, noHide, ref, threshold]);
+	}, [duration, initDelay, initTime, noHide, ref, threshold]);
 
 	/**
 	 * Set `ref.current` to `current`, if not null.
