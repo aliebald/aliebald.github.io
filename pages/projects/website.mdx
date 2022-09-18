@@ -34,8 +34,28 @@ export default ({ ogImage, children }) => (
 	</ProjectDetail>
 );
 
-<UnderConstruction />
-
 # This Website!
 
-This page will contain some information about my personal website in the future. For now, feel free to explore it yourself.
+This website was created to present my past and current projects on a more detailed level than a simple [GitHub profile](https://github.com/aliebald).
+
+The site is built with Next.js, which I wanted to use in one of my own projects for some time now, and Typescript.
+Thanks to Next.js, this website is completely statically generated (_static site generation_ - SSG), which allows even clients without JavaScript to access it.
+This is also great for search engine optimization (SEO), since crawlers can see the content of the site in the HTML code without needing to execute JavaScript.
+Meanwhile, Next.js allows the site to behave like a single page web application when JavaScript is enabled. Subpages preload, and navigating the website never requires a full-page refresh.
+
+# User Interface
+
+To avoid spending lots of time on the general typography, color scheme and other design processes, I based the site on [Mantine](https://mantine.dev).
+Mantine is an open-source React components library, which I was also looking forward to using in one of my projects.
+It helped me develop the site quickly and with a consistent style.
+
+Mantine also uses [Emotion](https://emotion.sh), which was also new for me.
+Emotion is a library that allows writing CSS styles with JavaScript.
+Mantine provides a [theme object](https://mantine.dev/theming/theme-object), which contains different style variables that were used in my own CSS written with Emotion.
+
+# Status
+
+I'm still working on and improving different aspects of the website.
+This includes: improving the project detail pages content, animations, better open-graph images and potentially a more complex projects list / page.
+
+<UnderConstruction />
