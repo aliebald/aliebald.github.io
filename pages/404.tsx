@@ -1,6 +1,5 @@
-import { Button, Container, Group, Text, Title } from "@mantine/core";
+import { Container, Text, Title } from "@mantine/core";
 import Head from "next/head";
-import Link from "next/link";
 import LinkButton from "../components/Atoms/LinkButton/LinkButton";
 import styles from "../styles/PageNotFound.module.css";
 

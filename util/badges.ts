@@ -1,4 +1,4 @@
-import { MantineColor, MantineGradient } from "@mantine/core";
+import type { MantineColor, MantineGradient } from "@mantine/core";
 
 export type Badge = {
 	title: string;
