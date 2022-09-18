@@ -1,5 +1,6 @@
 import fs from "fs";
 import { createCanvas, loadImage, CanvasRenderingContext2D } from "canvas";
+import type { Badge } from "./badges";
 
 /**
  * Generates an preview image for open graph.
@@ -7,6 +8,7 @@ import { createCanvas, loadImage, CanvasRenderingContext2D } from "canvas";
  * @param filename url-save filename for final png.
  * @param title Title for image
  * @param description Description for image
+ * @param badges List of badges that should be added to the image.
  * @param forceGeneration If false, the image is only generated if it does not yet exist.
  * @param width optional, image width. Default: 1280.
  * @param height optional, image height. Default: 640.
@@ -16,6 +18,7 @@ export default async function generateOGImage(
 	filename: string,
 	title: string,
 	description: string,
+	badges?: Badge[],
 	forceGeneration: boolean = process.env.NODE_ENV === "production",
 	width = 1280,
 	height = 640
@@ -65,6 +68,11 @@ export default async function generateOGImage(
 	const descriptionHeight = 450 - (descriptionLines.length * 45) / 2;
 	descriptionLines.forEach((line, i) => ctx.fillText(line, width / 2, descriptionHeight + i * 45));
 
+	// Draw badges
+	if (badges) {
+		drawBadges(ctx, width / 2, 260, badges);
+	}
+
 	// Save image
 	const buffer = canvas.toBuffer("image/png");
 	fs.writeFileSync(relativePath, buffer);
@@ -90,4 +98,9 @@ function splitIntoLines(ctx: CanvasRenderingContext2D, text: string, maxWidth: n
 	}
 	lines.push(currentLine);
 	return lines;
+}
+
+function drawBadges(ctx: CanvasRenderingContext2D, x: number, y: number, badges: Badge[]) {
+	const text = badges.map((b) => b.title).join("  -  ");
+	ctx.fillText(text, x, y);
 }

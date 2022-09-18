@@ -22,11 +22,11 @@ import Image from "../../components/Atoms/Image/Image";
 import controlFlowSVG from "../../public/images/projects/p2p-sec-gossip/control-flow.svg";
 
 export async function getStaticProps() {
-	const ogImage = await generateOGImage(project.id, project.title, project.abstract);
-	return { props: { ogImage: ogImage } };
+	const ogImage = await generateOGImage(project.id, project.title, project.abstract, project.badges);
+	return { props: { ogImage: ogImage, project: project } };
 }
 
-export default ({ ogImage, children }) => (
+export default ({ ogImage, project, children }) => (
 	<ProjectDetail project={project} ogImage={ogImage}>
 		{children}
 	</ProjectDetail>

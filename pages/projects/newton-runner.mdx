@@ -33,11 +33,11 @@ import overview1 from "../../public/images/projects/newton-runner/overview-1.png
 import overview2 from "../../public/images/projects/newton-runner/overview-2.png";
 
 export async function getStaticProps() {
-	const ogImage = await generateOGImage(project.id, project.title, project.abstract);
-	return { props: { ogImage: ogImage } };
+	const ogImage = await generateOGImage(project.id, project.title, project.abstract, project.badges);
+	return { props: { ogImage: ogImage, project: project } };
 }
 
-export default ({ ogImage, children }) => (
+export default ({ ogImage, project, children }) => (
 	<ProjectDetail project={project} ogImage={ogImage}>
 		{children}
 	</ProjectDetail>
