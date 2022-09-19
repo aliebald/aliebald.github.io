@@ -4,7 +4,7 @@ export interface Animation {
 	initDelay?: number;
 	threshold?: number;
 	noHide?: boolean;
-	type?: "slideUp" | "slideInR" | "growYUp" | "growYDown";
+	type?: "slideUpScaled" | "slideInR" | "growYUp" | "growYDown";
 	duration?: string;
 }
 

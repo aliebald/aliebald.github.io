@@ -57,7 +57,7 @@ a {
 
 .animation {
   transform-origin: bottom;
-  animation: slideUp 1s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation: slideUpScaled 1s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
 }
 
 @media (prefers-reduced-motion) {
@@ -71,7 +71,7 @@ a {
  *  Global Animations - Keyframes & CSS Specific to each Keyframe
  * =============================================================== */
 
-@keyframes slideUp {
+@keyframes slideUpScaled {
   0% {
     transform: translateY(100px) scale(.5);
     opacity: 0;
