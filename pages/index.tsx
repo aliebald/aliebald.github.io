@@ -40,16 +40,18 @@ const Home: NextPage<HomePageProps> = ({ teaserProjects, ogImage }: HomePageProp
 							Always interested in learning new things and building outstanding applications.
 						</Text>
 					</AnimateWhenInViewport>
-					<AnimateWhenInViewport initDelay={1000}>
-						<Group position="center">
+					<Group position="center">
+						<AnimateWhenInViewport type="slideInR" noWrapper initDelay={1000}>
 							<LinkButton href="/projects" size="lg">
 								Discover Projects
 							</LinkButton>
+						</AnimateWhenInViewport>
+						<AnimateWhenInViewport type="slideInR" noWrapper initDelay={800}>
 							<LinkButton href="/contact" size="lg" variant="outline">
 								Contact
 							</LinkButton>
-						</Group>
-					</AnimateWhenInViewport>
+						</AnimateWhenInViewport>
+					</Group>
 				</Container>
 			</Center>
 			<WaveSection>
