@@ -6,7 +6,7 @@ export interface Animation {
 	threshold?: number;
 	noHide?: boolean;
 	type?: "slideUp" | "slideUpScaled" | "slideInR" | "slideInL" | "growYUp" | "growYDown";
-	duration?: string;
+	duration?: number;
 }
 
 interface AnimateWhenInViewportProps<T> extends Animation {
@@ -15,6 +15,23 @@ interface AnimateWhenInViewportProps<T> extends Animation {
 	noWrapper?: boolean;
 }
 
+/**
+ * Plays a animation on `children` when they enter the viewport.
+ *
+ * @param props.children JSX Element that should be animated. Must support ref prop (@see React.forwardRef).
+ * @param props.wrapperClassName optional className for the animation wrapper element. Ignored if `noWrapper` is `true`.
+ * @param props.noWrapper optional flag to disable the animation wrapper. Can be used to remove the effects (currently `overflow: hidden`) of the wrapper.
+ * @param props.delay optional delay in ms used for `animation-delay` CSS attribute. The animation will play after it is visible and the delay passed.
+ *    Can be combined with `initDelay`, the animation will play after both delays have been waited for.
+ * @param props.initDelay optional delay between page load and the animation. The animation will play if the page was open for at least `initDelay` ms.
+ *    Can be combined with `delay`, the animation will play after both delays have been waited for.
+ * @param props.threshold optional `threshold` argument for IntersectionObserver used to detect when `children` are in the viewport.
+ *    The animation is triggered if at least `threshold`% of children are visible. (@see IntersectionObserver).
+ * @param props.noHide optional flag to disable the hidden attribute used to hide `children` before the animation, if the animation is delayed using `initDelay`.
+ * @param props.type optional animation type.
+ * @param props.duration optional animation duration in ms.
+ * @returns
+ */
 export default function AnimateWhenInViewport<T extends HTMLElement>({
 	children,
 	wrapperClassName = "",
@@ -48,7 +65,7 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 		 */
 		const applyAnimation = (elem: HTMLElement) => {
 			if (duration) {
-				elem.style.animationDuration = duration;
+				elem.style.animationDuration = `${duration}ms`;
 			}
 			elem.classList.add("animation");
 			elem.classList.remove("hidden");
