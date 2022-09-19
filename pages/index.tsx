@@ -10,7 +10,7 @@ import { getProjectsFromIDs, Project } from "../util/projects";
 import AnimateWhenInViewport from "../components/Atoms/AnimateWhenInViewport/AnimateWhenInViewport";
 
 const DESCRIPTION =
-	"Portfolio & Personal Website of Alexander Liebald, Passionate Full Stack Software Developer. Past Projects, Contact and more.";
+	"Portfolio & Personal Website of Alexander Liebald, Passionate Full-Stack Web Developer. Past Projects, Contact and more.";
 
 interface HomePageProps {
 	teaserProjects: Project[];
@@ -35,9 +35,9 @@ const Home: NextPage<HomePageProps> = ({ teaserProjects, ogImage }: HomePageProp
 					</AnimateWhenInViewport>
 					<AnimateWhenInViewport type="slideInR" initDelay={500}>
 						<Text size="lg" align="center" py="md">
-							Passionate Full Stack Software Developer. Experienced with building Web Applications using
-							TypeScript, React, Node.js and lots of other amazing libraries, frameworks &amp; languages.
-							Always interested in learning new things and building outstanding applications.
+							Passionate full stack web developer. Experienced with building responsive web applications
+							using TypeScript, React, Node.js and lots of other amazing libraries, frameworks &amp;
+							languages. Always interested in learning new things and building outstanding applications.
 						</Text>
 					</AnimateWhenInViewport>
 					<Group position="center">
