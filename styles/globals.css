@@ -87,6 +87,26 @@ a {
   }
 }
 
+.animation.slideUp {
+  animation-name: slideUp;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .3;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .animation.slideInR {
   animation-name: slideInR;
   transform-origin: center;
@@ -103,7 +123,28 @@ a {
   }
 
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animation.slideInL {
+  animation-name: slideInL;
+  transform-origin: center;
+}
+
+@keyframes slideInL {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .3;
+  }
+
+  100% {
+    transform: translateX(0);
     opacity: 1;
   }
 }

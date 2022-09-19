@@ -20,6 +20,7 @@ import HeadMetaTags from "../../Atoms/HeadMetaTags/HeadMetaTags";
 import { MDXProvider } from "@mdx-js/react";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
+import AnimateWhenInViewport from "../../Atoms/AnimateWhenInViewport/AnimateWhenInViewport";
 
 interface ProjectDetailProps {
 	project: Project;
@@ -60,12 +61,12 @@ export default function ProjectDetail({ project, ogImage, children }: ProjectDet
 		},
 	};
 
-	const links = (
-		<>
-			{project.links?.map((link, index) => (
-				<ProjectLinkBtn link={link} key={index} />
-			))}
-		</>
+	const links = project.links?.map((link, index) => <ProjectLinkBtn link={link} key={index} />) ?? [];
+
+	const moreProjectsBtn = (
+		<LinkButton href="/projects" radius="xl" variant="light">
+			More Projects
+		</LinkButton>
 	);
 
 	return (
@@ -87,7 +88,9 @@ export default function ProjectDetail({ project, ogImage, children }: ProjectDet
 			</PageHeader>
 			<MantineProvider withGlobalStyles withNormalizeCSS theme={projectDetailTheme} emotionCache={emotionCache}>
 				<MDXProvider components={mdxComponents}>
-					<Container>{children}</Container>
+					<AnimateWhenInViewport type="slideUp">
+						<Container>{children}</Container>
+					</AnimateWhenInViewport>
 				</MDXProvider>
 			</MantineProvider>
 			<Space h="sm" />
@@ -96,10 +99,17 @@ export default function ProjectDetail({ project, ogImage, children }: ProjectDet
 					Interested? Find out More
 				</Title>
 				<Group spacing="xs" position="center" py="md">
-					{links}
-					<LinkButton href="/projects" radius="xl" variant="light">
-						More Projects
-					</LinkButton>
+					{[...links, moreProjectsBtn].map((link, index) => (
+						<AnimateWhenInViewport
+							type="slideInL"
+							delay={index * 200}
+							initDelay={500}
+							key={index}
+							noWrapper
+						>
+							{link}
+						</AnimateWhenInViewport>
+					))}
 				</Group>
 			</PageHeader>
 		</article>

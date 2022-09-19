@@ -1,21 +1,25 @@
 import { useRef, useEffect, useState, cloneElement } from "react";
 
 export interface Animation {
+	delay?: number;
 	initDelay?: number;
 	threshold?: number;
 	noHide?: boolean;
-	type?: "slideUpScaled" | "slideInR" | "growYUp" | "growYDown";
+	type?: "slideUp" | "slideUpScaled" | "slideInR" | "slideInL" | "growYUp" | "growYDown";
 	duration?: string;
 }
 
 interface AnimateWhenInViewportProps<T> extends Animation {
 	children: JSX.Element;
 	wrapperClassName?: string;
+	noWrapper?: boolean;
 }
 
 export default function AnimateWhenInViewport<T extends HTMLElement>({
 	children,
 	wrapperClassName = "",
+	noWrapper = false,
+	delay = 0,
 	initDelay = 0,
 	threshold = 0,
 	noHide,
@@ -56,7 +60,8 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 		 */
 		const delayAnimation = (elem: HTMLElement, wait: number) => {
 			hideElement(elem);
-			elem.style.animationDelay = `${Math.round(wait)}ms`;
+			const combinedDelay = Math.round(wait) + delay;
+			elem.style.animationDelay = `${combinedDelay}ms`;
 			applyAnimation(elem);
 		};
 
@@ -83,12 +88,15 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 			hideElement(ref.current);
 		}, observerOptions);
 
+		if (delay) {
+			ref.current.style.animationDelay = `${delay}ms`;
+		}
 		observer.observe(ref.current);
 
 		return () => {
 			observer.disconnect();
 		};
-	}, [duration, initDelay, initTime, noHide, ref, threshold]);
+	}, [duration, initDelay, initTime, noHide, ref, threshold, delay]);
 
 	/**
 	 * Set `ref.current` to `current`, if not null.
@@ -99,9 +107,14 @@ export default function AnimateWhenInViewport<T extends HTMLElement>({
 		}
 	};
 
-	return (
-		<div className={`${wrapperClassName} animation-wrapper`}>
-			{cloneElement(children, { ref: updateRef, className: `${children.props.className} ${type ?? ""}` })}
-		</div>
-	);
+	const clonedChildren = cloneElement(children, {
+		ref: updateRef,
+		className: `${children.props.className} ${type ?? ""}`,
+	});
+
+	if (noWrapper) {
+		return clonedChildren;
+	}
+
+	return <div className={`${wrapperClassName} animation-wrapper`}>{clonedChildren}</div>;
 }
