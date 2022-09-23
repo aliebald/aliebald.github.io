@@ -12,7 +12,7 @@ interface ProjectsPageProps {
 }
 
 const DESCRIPTION =
-	"Major past and current projects by Alexander Liebald. All projects are available on GitHub, the links can be found on the project detail page.";
+	"Major past and current projects I created and/or worked on. All projects are available on GitHub, the links can be found on the project detail page.";
 
 const Projects: NextPage<ProjectsPageProps> = ({ projects, ogImage }: ProjectsPageProps) => {
 	return (
