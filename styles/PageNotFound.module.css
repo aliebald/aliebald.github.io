@@ -6,9 +6,13 @@
 	height: 100%
 }
 
+.container>*:not(.background) {
+	z-index: 10;
+}
+
 .background {
 	position: absolute;
-	font-size: min(400px, 55vw);
-	z-index: -1;
-	opacity: .1
+	font-size: min(400px, 55vw) !important;
+	opacity: .1;
+	user-select: none;
 }
