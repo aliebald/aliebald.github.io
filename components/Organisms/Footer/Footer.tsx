@@ -33,7 +33,7 @@ export default function Footer() {
 	return (
 		<div className={classes.footer}>
 			<Container className={classes.container}>
-				<Text>&#169; 2022 Alexander Liebald</Text>
+				<Text>&#169; 2023 Alexander Liebald</Text>
 				<Group className={classes.links}>
 					<Link href="/contact">
 						<a>Contact</a>
