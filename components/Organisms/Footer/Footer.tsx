@@ -38,7 +38,7 @@ export default function Footer() {
 					<Link href="/contact">
 						<a>Contact</a>
 					</Link>
-					<a href="https://aliebald.github.io/impressum/" target="_blank" rel="noopener noreferrer">
+					<a href="https://impressum.liebald.dev" target="_blank" rel="noopener noreferrer">
 						Impressum
 					</a>
 					<a href="https://github.com/aliebald/aliebald.github.io" target="_blank" rel="noopener noreferrer">
