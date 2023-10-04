@@ -12,7 +12,7 @@ export function ColorSchemeToggle({ className, size, stroke }: ColorSchemeToggle
 	const isDark = colorScheme === "dark";
 
 	return (
-		<Tooltip label="Toggle Color Scheme" openDelay={500}>
+		<Tooltip label="Toggle color scheme" openDelay={500}>
 			<ActionIcon variant="default" size="lg" onClick={() => toggleColorScheme()} className={className}>
 				{isDark ? <IconSun size={size} stroke={stroke} /> : <IconMoonStars size={size} stroke={stroke} />}
 			</ActionIcon>

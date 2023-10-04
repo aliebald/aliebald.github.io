@@ -87,17 +87,17 @@ export default function Header({ links }: { links: { label: string; href: string
 				<Group spacing={0} className={classes.social} position="right" noWrap>
 					<QuickIcon
 						href="https://github.com/aliebald/"
-						tooltip="My GitHub Profile"
+						tooltip="My GitHub profile"
 						icon={<IconBrandGithub size={iconSize} stroke={iconStroke} />}
 					/>
 					<QuickIcon
-						href="https://www.linkedin.com/in/alexander-liebald/"
-						tooltip="LinkedIn Profile"
+						href="https://www.linkedin.com/in/aliebald/"
+						tooltip="LinkedIn profile"
 						icon={<IconBrandLinkedin size={iconSize} stroke={iconStroke} />}
 					/>
 					<QuickIcon
 						href="mailto:contact@liebald.dev"
-						tooltip="Send Me a Mail"
+						tooltip="E-mail me"
 						icon={<IconMail size={iconSize} stroke={iconStroke} />}
 					/>
 					<ColorSchemeToggle size={iconSize} stroke={iconStroke} />
