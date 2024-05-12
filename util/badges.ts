@@ -73,6 +73,10 @@ export const badges: Badges = {
 		title: "Emotion",
 		gradient: { from: "pink.6", to: "grape.6", deg: gradientDegree },
 	},
+	Firebase: {
+		title: "Firebase",
+		gradient: { from: "#ffcb2b", to: "#ffa610", deg: gradientDegree },
+	},
 } as const;
 
 // TODO

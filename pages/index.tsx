@@ -66,8 +66,8 @@ export default Home;
 export async function getStaticProps() {
 	const ogImage = await generateOGImage("home", "Alexander Liebald", DESCRIPTION);
 	const teaserProjects = await getProjectsFromIDs(
-		["website", "common-steam-games", "newton-runner", "experimental-hub"],
-		false
+		["social-games", "common-steam-games", "newton-runner", "experimental-hub"],
+		false,
 	);
 
 	return { props: { teaserProjects, ogImage: ogImage } };

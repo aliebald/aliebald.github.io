@@ -1,0 +1,89 @@
+export const project = {
+	title: "Social Games Collection",
+	abstract:
+		"App that collects and categorizes online social games. Enables groups of users to quickly find games to play online without the need for long searches.",
+	badges: mapBadges(["TypeScript", "React", "NextJs", "Mantine", "Firebase"]),
+	id: "social-games",
+	order: 10,
+	links: [
+		{
+			href: "https://github.com/aliebald/social-games",
+			type: "github",
+			label: "GitHub",
+		},
+		{
+			href: "https://social-games.liebald.dev",
+			type: "website",
+			label: "Website",
+		},
+	],
+};
+
+import { mapBadges } from "../../util/badges";
+import generateOGImage from "../../util/og-image-generator";
+import ProjectDetail from "../../components/templates/ProjectDetail/ProjectDetail";
+import Image from "../../components/Atoms/Image/Image";
+import Gallery from "../../components/Molecules/Gallery/Gallery";
+
+import adminPanel from "../../public/images/projects/social-games/admin-panel.jpg";
+import basicUsage from "../../public/images/projects/social-games/basic-usage.gif";
+import games from "../../public/images/projects/social-games/games.jpg";
+import tags from "../../public/images/projects/social-games/tags.jpg";
+import editTag from "../../public/images/projects/social-games/edit-tag.jpg";
+import editGame from "../../public/images/projects/social-games/edit-game.jpg";
+
+export const images = [
+	{ src: games, alt: "Games list" },
+	{ src: editGame, alt: "Game edit form" },
+	{ src: tags, alt: "Tags list" },
+	{ src: editTag, alt: "Tag edit form" },
+];
+
+export async function getStaticProps() {
+	const ogImage = await generateOGImage(project.id, project.title, project.abstract, project.badges);
+	return { props: { ogImage: ogImage, project: project } };
+}
+
+export default ({ ogImage, project, children }) => (
+	<ProjectDetail project={project} ogImage={ogImage}>
+		{children}
+	</ProjectDetail>
+);
+
+# Social Games
+
+Web app that can be used to collect and find online social games.
+Games have an image for quick recognition, player count limits and tags to map various attributes.
+
+It enables groups of users to quickly find games to play online without the need for long searches or
+comparisons of each person's game libraries.
+If a game is not in the collection, users can add it themselves after signing in and receiving the necessary authorization.
+
+# Usage
+
+Simply open [social-games.liebald.dev/games](https://social-games.liebald.dev/games), enter the desired player count,
+adjust selected tags if desired and inspect the results.
+
+<Image src={basicUsage} alt="Admin panel: user management" centered />
+
+Further instructions on how to contribute games and tags to the collection can be found at
+[social-games.liebald.dev](https://social-games.liebald.dev).
+
+# Tech Stack
+
+The app's frontend was build based on the atomic design principles using Next.js and Mantine.
+For data storage, Firebase is used. While most of the Firebase logic can reside in the frontend,
+more sensitive interactions are build using Next.js server actions.
+
+# Insights
+
+<Gallery items={images} />
+
+## Administration
+
+The app provides a small build in administration panel.
+This panel enables administrators to list registered users and manage their roles within the app.
+It also provides a simple way for backups with an export and import function, which exports/imports
+the whole database and uploaded images in the form of a zip archive.
+
+<Image src={adminPanel} alt="Admin panel: user management" centered />
